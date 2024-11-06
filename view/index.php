@@ -8,18 +8,26 @@
     <title>Iniciar Sesión</title>
 </head>
 <body>
-    <div class="container">
-        <div class="form-container login-container">
-            <form action="../php/procLogin.php" method="POST">
-                <h1>INICIAR SESIÓN</h1>
-                <input type="text" name="user" id="user" placeholder="Usuario" onblur="validateUser()">
-                <span id="userError" class="error-message"></span>
-                
-                <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" onblur="validatePassword()">
-                <span id="passwordError" class="error-message"></span>
-                
-                <button type="submit">ENTRAR</button>
-            </form>
+    <div class="split-container">
+        <!-- Sección del logo -->
+        <div class="logo-section">
+            <img src="../img/Dinner_at_Westfield_Logo_Cleaned-removebg-preview.png" alt="Dinner at Westfield Logo" class="logo">
+        </div>
+        
+        <!-- Sección del formulario de inicio de sesión -->
+        <div class="form-section">
+            <div class="form-container login-container">
+                <form action="../php/procLogin.php" method="POST">
+                    <h1>INICIAR SESIÓN</h1>
+                    <input type="text" name="user" id="user" placeholder="Usuario" onblur="validateUser()">
+                    <span id="userError" class="error-message"></span>
+                    
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" onblur="validatePassword()">
+                    <span id="passwordError" class="error-message"></span>
+                    
+                    <button type="submit">ENTRAR</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
