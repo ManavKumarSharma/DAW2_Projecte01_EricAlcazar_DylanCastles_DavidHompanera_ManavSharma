@@ -7,7 +7,8 @@ CREATE TABLE tbl_camarero (
     id_camarero INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nombre_camarero VARCHAR(50) NOT NULL,
     apellidos_camarero VARCHAR(50) NOT NULL,
-    username VARCHAR(25) NOT NULL
+    username VARCHAR(25) NOT NULL,
+    username_password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE tbl_mesa (
