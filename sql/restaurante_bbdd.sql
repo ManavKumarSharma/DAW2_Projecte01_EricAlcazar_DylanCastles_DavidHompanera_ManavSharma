@@ -68,6 +68,6 @@ INSERT INTO tbl_mesa (id_sala, numero_sillas_mesa) VALUES
 
 INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, estado_ocupacion) VALUES
 (1, 1, '2024-11-06 12:00:00', '2024-11-06 14:00:00', 'ocupada'),
-(2, 2, '2024-11-06 13:00:00', NULL, 'ocupada'),
+(2, 2, '2024-11-06 13:00:00', NULL, 'ocupada'),¡
 (3, 3, '2024-11-06 16:00:00', NULL, 'ocupada'),
 (4, 4, '2024-11-06 18:30:00', '2024-11-06 20:00:00', 'liberada');
