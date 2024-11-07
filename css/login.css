@@ -51,7 +51,6 @@ body, html {
 .form-container {
     background-color: #f3f4f6;
     padding: 2rem;
-    border-radius: 8px;
     width: 80%; /* Ajusta el ancho del formulario */
     max-width: 400px;
     text-align: center;
@@ -72,10 +71,15 @@ body, html {
     padding: 0.75rem;
     margin-bottom: 0.5rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
     font-family: "Lexend", sans-serif;
+    text-align: center;
+}
+
+.form-container input[type="text"]::placeholder,
+.form-container input[type="password"]::placeholder {
+    text-align: center;
 }
 
 /* Botón de enviar */
@@ -85,7 +89,6 @@ body, html {
     background-color: rgb(177, 8, 8);
     color: #fff;
     border: none;
-    border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
@@ -105,19 +108,21 @@ body, html {
     text-align: left;
 }
 
-/* Ajustes responsivos para pantallas pequeñas */
-/* Ajustes responsivos para pantallas pequeñas */
+#center_logo_responsive {
+    display: none;
+}
+
 /* Ajustes responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
     .split-container {
         flex-direction: column;
-        height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+        height: 100vh;
         margin: 0;
         padding: 0;
     }
 
     .logo-section {
-        display: none; /* Oculta la sección del logo en móvil para maximizar el espacio */
+        display: none;
     }
 
     .form-section {
@@ -125,23 +130,30 @@ body, html {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh; /* Asegura que la sección del formulario ocupe toda la pantalla */
-        background-color: #f3f4f6; /* Fondo para toda la pantalla en móvil */
+        height: 100vh;
+        background-color: #f3f4f6;
+        background-color: rgba(81, 0, 0, 0.902);
     }
 
     .form-container {
-        width: 90%; /* Ocupa casi todo el ancho en móviles */
+        width: 90%;
         max-width: 400px;
         padding: 2rem;
         margin: 0;
         background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.75);
+        border-radius: 0;
     }
 
     .logo {
         width: 60%;
-        margin-bottom: 1rem; /* Espacio entre el logo y el formulario */
+        margin-bottom: 1rem;
+    }
+
+    #center_logo_responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

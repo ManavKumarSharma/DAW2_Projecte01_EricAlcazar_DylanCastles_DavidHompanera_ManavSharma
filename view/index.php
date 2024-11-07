@@ -21,17 +21,19 @@ if (!empty($_GET['error'])) {
         <div class="logo-section">
             <img src="../img/Dinner_at_Westfield_Logo_Cleaned-removebg-preview.png" alt="Dinner at Westfield Logo" class="logo">
         </div>
-
+        
         <!-- Sección del formulario de inicio de sesión -->
         <div class="form-section">
             <div class="form-container login-container">
-                <img src="../img/Dinner_at_Westfield_Logo_Cleaned-removebg-preview.png" alt="Dinner at Westfield Logo" class="logo">
+                <div id="center_logo_responsive">
+                    <img src="../img/Dinner_at_Westfield_Logo_Cleaned-removebg-preview.png" alt="Dinner at Westfield Logo" class="logo">
+                </div>
                 <form action="../php/procLogin.php" method="POST" onsubmit="validateLogin(event)" id="login_form">
                     <h1>INICIAR SESIÓN</h1>
                     <input type="text" name="user" id="user" placeholder="Usuario">
                     <span id="userError" class="error-message"></span>
                     <br><br>
-
+                    
                     <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
                     <span id="passwordError" class="error-message">
                         <?php
@@ -41,7 +43,7 @@ if (!empty($_GET['error'])) {
                         ?>
                     </span>
                     <br><br>
-
+                    
                     <button type="submit" name="submit_form" id="submit_form">ENTRAR</button>
                 </form>
             </div>
