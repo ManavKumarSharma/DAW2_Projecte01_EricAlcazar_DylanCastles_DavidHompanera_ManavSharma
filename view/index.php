@@ -12,6 +12,16 @@
         <div class="form-container login-container">
             <form action="../php/procLogin.php" method="POST">
                 <h1>INICIAR SESIÓN</h1>
+                
+                <?php
+                // Iniciamos la sesión y mostramos el mensaje de error, si existe
+                session_start();
+                if (isset($_SESSION['login_error'])) {
+                    echo "<p class='error-message'>" . $_SESSION['login_error'] . "</p>";
+                    unset($_SESSION['login_error']); // Limpiamos el mensaje de error después de mostrarlo
+                }
+                ?>
+                
                 <input type="text" name="user" id="user" placeholder="Usuario" onblur="validateUser()">
                 <span id="userError" class="error-message"></span>
                 

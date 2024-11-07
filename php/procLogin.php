@@ -28,20 +28,20 @@ if (isset($_POST['user']) && isset($_POST['contrasena'])) {
             exit();
         } else {
             // Contraseña incorrecta
-            echo "<script>alert('Contraseña incorrecta');</script>";
-            echo "<script>window.location.href = '../view/index.php';</script>"; // Redirigimos a index.php en caso de error
+            $_SESSION['login_error'] = "Contraseña incorrecta.";
+            header("Location: ../view/index.php");
             exit();
         }
     } else {
         // Usuario incorrecto
-        echo "<script>alert('Usuario no encontrado');</script>";
-        echo "<script>window.location.href = '../view/index.php';</script>"; // Redirigimos a index.php en caso de error
+        $_SESSION['login_error'] = "Usuario no encontrado.";
+        header("Location: ../view/index.php");
         exit();
     }
 } else {
     // Si los campos no están definidos, mostramos un mensaje de error
-    echo "<script>alert('Por favor, complete todos los campos');</script>";
-    echo "<script>window.location.href = '../view/index.php';</script>"; // Redirigimos a index.php si falta algún campo
+    $_SESSION['login_error'] = "Por favor, complete todos los campos.";
+    header("Location: ../view/index.php");
     exit();
 }
 
