@@ -55,39 +55,65 @@ $id_camarero = $_SESSION['user_id'];
 
     <main id="mesas_main">
     
-        <div id="mapa_restaurante" class="salasComun">
+        <div id="mapa_restaurante">
             <div id="seccionGrande">
-                <div id="salaTerraza1" class="salasComun">
-
-                </div>
-                <div id="salasInteriores" class="salasComun">
-                    <div id="salaGrande1" class="salasComun">
-                        <div id="salaPrivada1" class="salasComun">
-
-                        </div>
-                        <div id="salaPrivada2" class="salasComun">
-
-                        </div>
-                    </div>
-                    <div id="salaGrande2" class="salasComun">
-                        <div id="salaPrivada3" class="salasComun">
-
-                        </div>
-                        <div id="salaPrivada4" class="salasComun">
-
-                        </div>
-                    </div>
-                    <div id="cocina" class="salasComun">
-                        
+                <div id="salaTerraza1">
+                    <div class="divTitulo">
+                        <p class="titulosSalas">TERRAZA 1</p>
                     </div>
                 </div>
-                <div id="salaTerraza2" class="salasComun">
-
+                <div id="salasInteriores">
+                    <div id="salaGrande1">
+                        <div id="privTitulo">
+                            <div class="divTitulo">
+                                <p class="titulosSalas">SALA 1</p>
+                            </div>
+                            <div id="salaPrivada1">
+                                <div class="divTitulo">
+                                    <p class="titulosSalas">PRIV 1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="salaPrivada2">
+                            <div class="divTitulo">
+                                <p class="titulosSalas">PRIV 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="salaGrande2">
+                        <!-- <div id="privTitulo"> -->
+                            <div class="divTitulo">
+                                <p class="titulosSalas">SALA 2</p>
+                            </div>
+                            <div id="salaPrivada3">
+                                <div class="divTitulo">
+                                    <p class="titulosSalas">PRIV 3</p>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                        <div id="salaPrivada4">
+                            <div class="divTitulo">
+                                <p class="titulosSalas">PRIV 4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cocina">
+                        <div class="divTitulo">
+                            <p class="titulosSalas">COCINA</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="salaTerraza2">
+                    <div class="divTitulo">
+                        <p class="titulosSalas">TERRAZA 2</p>
+                    </div>
                 </div>
             </div>
 
-            <div id="salaTerraza3" class="salasComun">
-
+            <div id="salaTerraza3">
+                <div class="divTitulo">
+                    <p class="titulosSalas">TERRAZA 3</p>
+                </div>
             </div>
 
         </div>
