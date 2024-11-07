@@ -102,20 +102,46 @@ body, html {
 .error-message {
     font-size: 0.875rem;
     color: #d9534f;
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
     text-align: left;
 }
 
 /* Ajustes responsivos para pantallas pequeñas */
+/* Ajustes responsivos para pantallas pequeñas */
+/* Ajustes responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
     .split-container {
         flex-direction: column;
+        height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+        margin: 0;
+        padding: 0;
     }
-    .logo-section, .form-section {
+
+    .logo-section {
+        display: none; /* Oculta la sección del logo en móvil para maximizar el espacio */
+    }
+
+    .form-section {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Asegura que la sección del formulario ocupe toda la pantalla */
+        background-color: #f3f4f6; /* Fondo para toda la pantalla en móvil */
     }
+
+    .form-container {
+        width: 90%; /* Ocupa casi todo el ancho en móviles */
+        max-width: 400px;
+        padding: 2rem;
+        margin: 0;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
     .logo {
-        width: 80%;
+        width: 60%;
+        margin-bottom: 1rem; /* Espacio entre el logo y el formulario */
     }
 }
+
