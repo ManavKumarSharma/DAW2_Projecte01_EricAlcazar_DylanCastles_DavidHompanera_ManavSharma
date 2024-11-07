@@ -9,7 +9,7 @@ session_start();
 if (isset($_POST['user']) && isset($_POST['contrasena'])) {
     // Obtenemos los valores de los campos de formulario
     $username = mysqli_real_escape_string($conn, $_POST['user']);
-    $password = $_POST['contrasena'];
+    $password = mysqli_real_escape_string($conn, $_POST['contrasena']);
 
     // Consulta para obtener el usuario y la contraseña en texto plano
     $query = "SELECT id_camarero, username_password FROM tbl_camarero WHERE username = '$username'";
@@ -21,10 +21,10 @@ if (isset($_POST['user']) && isset($_POST['contrasena'])) {
         $stored_password = $row['username_password'];
 
         // Verificamos si las contraseñas coinciden (sin encriptación)
-        if ($password === $stored_password) {
+        if (password_verify($password, $stored_password)) {
             // La autenticación es exitosa
             $_SESSION['user_id'] = $row['id_camarero']; // Guardamos el ID del usuario en la sesión
-            header("Location: ../mesas.php"); // Redirigimos a mesas.php
+            header("Location: ../view/mesas.php"); // Redirigimos a mesas.php
             exit();
         } else {
             // Contraseña incorrecta
