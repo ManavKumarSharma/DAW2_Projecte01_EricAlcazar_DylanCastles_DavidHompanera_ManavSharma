@@ -54,7 +54,7 @@ INSERT INTO tbl_sala (ubicacion_sala) VALUES
 ('Comedor Privado');
 
 
-INSERT INTO tbl_camarero (nombre_camarero, apellidos_camarero, username, username_password) VALUES
+INSERT INTO tbl_camarero (nombre_camarero, apellidos_camarero, username, password) VALUES
 ('Juan', 'García López', 'juang', '$2y$10$GMV4gk/G7uCYrrRf/4YnmukMLnLwYcTElPR3ssLZuS8cZ4D8JBI8W'),
 ('María', 'Pérez Fernández', 'mariap', '$2y$10$GMV4gk/G7uCYrrRf/4YnmukMLnLwYcTElPR3ssLZuS8cZ4D8JBI8W'),
 ('Carlos', 'Rodríguez Sánchez', 'carlosr', '$2y$10$GMV4gk/G7uCYrrRf/4YnmukMLnLwYcTElPR3ssLZuS8cZ4D8JBI8W'),
