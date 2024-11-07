@@ -1,2 +1,0 @@
-# DAW2_Projecte01_EricAlcazar_DylanCastles_DavidHompanera_ManavSharma
-Poryecto 01
