@@ -17,7 +17,7 @@
         <!-- Sección del formulario de inicio de sesión -->
         <div class="form-section">
             <div class="form-container login-container">
-                <form action="../php/procLogin.php" method="POST" onsubmit="validateLogin(event)">
+                <forçm action="../php/procLogin.php" method="POST" onsubmit="validateLogin(event)">
                     <h1>INICIAR SESIÓN</h1>
                     <input type="text" name="user" id="user" placeholder="Usuario">
                     <span id="userError" class="error-message"></span>
