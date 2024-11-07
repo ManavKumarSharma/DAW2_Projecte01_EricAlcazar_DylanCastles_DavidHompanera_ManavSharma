@@ -14,7 +14,7 @@ if (isset($_POST['user']) && isset($_POST['contrasena'])) {
     // Consulta para obtener el usuario y la contraseña en texto plano
     $query = "SELECT id_camarero, username_password FROM tbl_camarero WHERE username = '$username'";
     $result = mysqli_query($conn, $query);
-
+    
     // Verificamos si el usuario existe
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);

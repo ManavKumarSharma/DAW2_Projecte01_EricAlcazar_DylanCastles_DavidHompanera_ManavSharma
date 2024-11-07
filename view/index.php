@@ -17,13 +17,15 @@
         <!-- Sección del formulario de inicio de sesión -->
         <div class="form-section">
             <div class="form-container login-container">
-                <form action="../php/procLogin.php" method="POST">
+                <form action="../php/procLogin.php" method="POST" onsubmit="validateLogin(event)">
                     <h1>INICIAR SESIÓN</h1>
-                    <input type="text" name="user" id="user" placeholder="Usuario" onblur="validateUser()">
+                    <input type="text" name="user" id="user" placeholder="Usuario">
                     <span id="userError" class="error-message"></span>
+                    <br><br>
                     
-                    <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" onblur="validatePassword()">
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
                     <span id="passwordError" class="error-message"></span>
+                    <br><br>
                     
                     <button type="submit">ENTRAR</button>
                 </form>
