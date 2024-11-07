@@ -57,60 +57,78 @@ $id_camarero = $_SESSION['user_id'];
     
         <div id="mapa_restaurante">
             <div id="seccionGrande">
-                <div id="salaTerraza1">
+                <div id="salaTerraza1" class="salaComun">
                     <div class="divTitulo">
                         <p class="titulosSalas">TERRAZA 1</p>
                     </div>
+                    <div id="terraza1Area">
+                    <!-- ----------------------------------------------------------------- -->
+                    </div>
                 </div>
                 <div id="salasInteriores">
-                    <div id="salaGrande1">
+                    <div id="salaGrande1" class="salaComun">
                         <div id="privTitulo">
-                            <div class="divTitulo">
-                                <p class="titulosSalas">SALA 1</p>
-                            </div>
-                            <div id="salaPrivada1">
+                            <div id="salaPrivada1" class="salaComun">
                                 <div class="divTitulo">
                                     <p class="titulosSalas">PRIV 1</p>
                                 </div>
+                                <div id="priv1Area">
+                                <!-- ----------------------------------------------------------------- -->
+                                </div>
+                            </div>
+                            <div class="divTituloSala">
+                                <p class="titulosSalas">SALA 1</p>
                             </div>
                         </div>
-                        <div id="salaPrivada2">
+                        <div id="salaPrivada2" class="salaComun">
                             <div class="divTitulo">
                                 <p class="titulosSalas">PRIV 2</p>
                             </div>
+                            <div id="priv2Area">
+                                <!-- ----------------------------------------------------------------- -->
+                            </div>
                         </div>
                     </div>
-                    <div id="salaGrande2">
-                        <!-- <div id="privTitulo"> -->
-                            <div class="divTitulo">
+                    <div id="salaGrande2" class="salaComun">
+                        <div id="privTitulo">
+                            <div class="divTituloSala">
                                 <p class="titulosSalas">SALA 2</p>
                             </div>
-                            <div id="salaPrivada3">
+                            <div id="salaPrivada3" class="salaComun">
                                 <div class="divTitulo">
                                     <p class="titulosSalas">PRIV 3</p>
                                 </div>
+                                <div id="priv3Area">
+                                <!-- ----------------------------------------------------------------- -->
+                                </div>
                             </div>
-                        <!-- </div> -->
-                        <div id="salaPrivada4">
+                        </div>
+                        <div id="salaPrivada4" class="salaComun">
                             <div class="divTitulo">
                                 <p class="titulosSalas">PRIV 4</p>
                             </div>
+                            <div id="priv4Area">
+                            <!-- ----------------------------------------------------------------- -->
+                            </div>
                         </div>
                     </div>
-                    <div id="cocina">
+                    <div id="cocina" class="salaComun">
                         <div class="divTitulo">
                             <p class="titulosSalas">COCINA</p>
                         </div>
                     </div>
                 </div>
-                <div id="salaTerraza2">
+                <div id="salaTerraza2" class="salaComun">
                     <div class="divTitulo">
                         <p class="titulosSalas">TERRAZA 2</p>
+                    </div>
+                    <div id="terraza2Area">
+                    <!-- ----------------------------------------------------------------- -->
                     </div>
                 </div>
             </div>
 
-            <div id="salaTerraza3">
+            <div id="salaTerraza3" class="salaComun">
                 <div class="divTitulo">
                     <p class="titulosSalas">TERRAZA 3</p>
                 </div>
