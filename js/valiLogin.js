@@ -11,7 +11,7 @@ function validateUser() {
     userError.textContent = "";
     userField.classList.remove("error");
 
-    return userField;
+    return true;  // Cambiado a true para indicar que la validación es correcta
 }
 
 function validatePassword() {
@@ -27,15 +27,19 @@ function validatePassword() {
     passwordError.textContent = "";
     passwordField.classList.remove("error");
 
-    return passwordField;
+    return true;  // Cambiado a true para indicar que la validación es correcta
 }
 
 function validateLogin(event) {
+    event.preventDefault();  // Evita que el formulario se envíe de inmediato
+
     // Llama a las funciones de validación
     const isUserValid = validateUser();
     const isPasswordValid = validatePassword();
 
-    if (isUserValid === false && isPasswordValid === false) {
-        event.preventDefault();
+    // Verifica si ambas validaciones son correctas
+    if (isUserValid && isPasswordValid) {
+        // Si las validaciones son correctas, envía el formulario
+        document.forms["login_form"].submit();
     }
 }
