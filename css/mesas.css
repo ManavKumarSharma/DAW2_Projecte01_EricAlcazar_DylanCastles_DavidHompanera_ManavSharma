@@ -37,7 +37,7 @@ html, body {
 
 /* ESTILOS SALAS */
 /* .salasComun {
-    border: solid 1px rgb(177, 8, 8);
+    border: solid 1px #660000;
     box-sizing: border-box;
 } */
 #mapa_restaurante {
@@ -72,7 +72,7 @@ html, body {
     background-color: yellow;
     display: flex;
     flex-direction: column;
-    border-right: solid 0.5px rgb(177, 8, 8);
+    border-right: solid 0.5px #660000;
 }
 #salaPrivada1 {
     width: 35%;
@@ -93,7 +93,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    border-left: solid 0.5px rgb(177, 8, 8);
+    border-left: solid 0.5px  #660000;
 }
 #salaPrivada3 {
     width: 35%;
@@ -138,7 +138,7 @@ html, body {
 }
 
 #p_username_profile, .span_subtitle, .btn_custom_logOut {
-    color: rgb(177, 8, 8);;
+    color:#660000;;
 }
 
 #p_username_profile {
@@ -150,31 +150,57 @@ html, body {
     margin-left: 1vw;
 }
 
-#container_logOut_header {
+#nav_header {
     margin-right: 1vw;
 }
 
 #container_title_header {
-    margin-right: 10vw;
+    margin-left: 1.5vw;
     display: flex;
     flex-direction: column;
 }
 
 .btn_custom_logOut {
-    border: solid 1px rgb(177, 8, 8);
+    border: solid 1px #660000;
     background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Esta línea agrega la sombra */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn_custom_logOut:hover {
-    background-color: rgb(177, 8, 8);
-    border: solid 1px rgb(177, 8, 8);
+    background-color: #660000;
+    border: solid 1px #660000;
 }
 
 #title_header {
     all: unset;
     font-size: 7vh;
-    color: rgb(177, 8, 8);
+    color: #660000;
     height: 9vh;
     
+}
+
+#container_title_header_2 {
+    margin-right: 1.706vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#bind_result {
+    width: 100%;
+    text-align: center;
+}
+
+#img_dinero_perdido {
+    width: 50vw;
+}
+
+/* Efecto hover sobre las filas de la tabla */
+#reservas_table tbody tr:hover {
+    background-color: #f5f5f5;  /* Cambia el fondo cuando se pase el mouse */
+    cursor: pointer;            /* Cambia el cursor a mano (opcional) */
+}
+
+/* Si quieres cambiar el color de las celdas cuando se hace hover */
+#reservas_table tbody tr:hover td {
+    color: #333;  /* Cambia el color del texto de las celdas (opcional) */
 }

@@ -1,16 +1,16 @@
 <?php
-// Incluimos el archivo de conexión a la base de datos
-include '../php/conexion.php';
-
 // Iniciamos la sesión
 session_start();
 
 // Verificamos si la sesión del camarero está activa
-if (!isset($_SESSION['user_id'])) {
+if (empty($_SESSION['user_id'])) {
     // Si no está activo, redirigimos a la página de inicio de sesión
     header("Location: ./index.php");
     exit();
 }
+
+// Incluimos el archivo de conexión a la base de datos
+include '../php/conexion.php';
 
 // Obtenemos el ID del camarero desde la sesión
 $id_camarero = $_SESSION['user_id'];
@@ -47,10 +47,11 @@ $id_camarero = $_SESSION['user_id'];
                 <span class="span_subtitle">Gestión de mesas</span>
             </div>
 
-            <!-- Contenedor del Log Out -->
-            <div id="container_logOut_header">
+            <!-- Contenedor de navegación -->
+            <nav id="nav_header">
+                <a href="./historico.php"><button class="btn btn-danger btn_custom_logOut">Histórico de reservas</button></a>
                 <a href="#"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
-            </div>
+            </nav>
         </header>
 
     <main id="mesas_main">
