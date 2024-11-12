@@ -200,7 +200,7 @@ html, body {
 }
 
 #container_title_header {
-    margin-right: 10vw;
+    margin-left: 1.5vw;
     display: flex;
     flex-direction: column;
 }
@@ -222,4 +222,30 @@ html, body {
     color: rgb(177, 8, 8);
     height: 9vh;
     
+}
+
+#container_title_header_2 {
+    margin-right: 1.706vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#bind_result {
+    width: 100%;
+    text-align: center;
+}
+
+#img_dinero_perdido {
+    width: 50vw;
+}
+
+/* Efecto hover sobre las filas de la tabla */
+#reservas_table tbody tr:hover {
+    background-color: #f5f5f5;  /* Cambia el fondo cuando se pase el mouse */
+    cursor: pointer;            /* Cambia el cursor a mano (opcional) */
+}
+
+/* Si quieres cambiar el color de las celdas cuando se hace hover */
+#reservas_table tbody tr:hover td {
+    color: #333;  /* Cambia el color del texto de las celdas (opcional) */
 }
