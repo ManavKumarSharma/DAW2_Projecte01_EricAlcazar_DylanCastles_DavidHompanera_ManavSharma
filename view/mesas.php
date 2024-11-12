@@ -129,21 +129,32 @@ $id_camarero = $_SESSION['user_id'];
                         </div>
                         <div id="divSalaPriv" class="comunSalasMesa">
                             <img src="../img/mesaD4.png" alt="" class="mesa">
+
+                            <img src="../img/mesaD4ocupada.png" alt="" class="mesa" style="display: none;">
                         </div>
                     </div>
                 </div>
                 <div id="divAbajo">
                     <div id="divSalaPrivAbajo" class="comunSalasMesa">
                         <img src="../img/mesaD4.png" alt="" class="mesa">
+
+                        <img src="../img/mesaD4ocupada.png" alt="" class="mesa" style="display: none;">
                     </div>
                     <div id="divTerraza3" class="comunSalasMesas">
                         <img src="../img/mesaD2.png" alt="" class="mesa">
                         <img src="../img/mesaD4.png" alt="" class="mesa">
                         <img src="../img/mesaD4.png" alt="" class="mesa">
                         <img src="../img/mesaD2.png" alt="" class="mesa">
+
+                        <img src="../img/mesaD2ocupada.png" alt="" class="mesa" style="display: none;">
+                        <img src="../img/mesaD4ocupada.png" alt="" class="mesa" style="display: none;">
+                        <img src="../img/mesaD4ocupada.png" alt="" class="mesa" style="display: none;">
+                        <img src="../img/mesaD2ocupada.png" alt="" class="mesa" style="display: none;">
                     </div>
                     <div id="divSalaPrivAbajo" class="comunSalasMesa">
                         <img src="../img/mesaD4.png" alt="" class="mesa">
+
+                        <img src="../img/mesaD4ocupada.png" alt="" class="mesa" style="display: none;">
                     </div>
                 </div>
             </div>
