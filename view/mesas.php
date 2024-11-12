@@ -68,9 +68,14 @@ $id_camarero = $_SESSION['user_id'];
                         <div id="divTerrazasLados" class="terrazasVerticales">
                             <img src="../img/mesaD6.png" alt="" class="mesa">
                             <img src="../img/mesaD6.png" alt="" class="mesa">
+
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" style="display: none;">
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" style="display: none;">
                         </div>
                         <div id="divSalaPriv" class="comunSalasMesa">
                             <img src="../img/mesaD4.png" alt="" class="mesa">
+
+                            <img src="../img/mesaD4ocupado.png" alt="" class="mesa"style="display: none;">
                         </div>
                     </div>
                     <div id="divSala1">
@@ -78,11 +83,20 @@ $id_camarero = $_SESSION['user_id'];
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+
                         </div>
                         <div class="salaGrandeDividida">
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
                         </div>
                     </div>
                     <div id="divSala2">
@@ -90,17 +104,28 @@ $id_camarero = $_SESSION['user_id'];
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
                         </div>
                         <div class="salaGrandeDividida">
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
                             <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
+                            <img src="../img/mesaD8ocupada.png" alt="" class="mesa" id="mesasCentro" style="display: none;">
                         </div>
                     </div>
                     <div id="divLados">
                         <div id="divTerrazasLados" class="terrazasVerticales">
                             <img src="../img/mesaD6.png" alt="" class="mesa">
                             <img src="../img/mesaD6.png" alt="" class="mesa">
+
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" style="display: none;">
+                            <img src="../img/mesaD6ocupada.png" alt="" class="mesa" style="display: none;">
                         </div>
                         <div id="divSalaPriv" class="comunSalasMesa">
                             <img src="../img/mesaD4.png" alt="" class="mesa">

@@ -12,13 +12,30 @@ INSERT INTO tbl_camarero (nombre_camarero, apellidos_camarero, username, passwor
 
 -- Insertar mesas asociadas a cada sala
 INSERT INTO tbl_mesa (id_sala, numero_sillas_mesa) VALUES
-(1, 4),  -- Mesa en Sala
-(1, 6),  
-(2, 4),  -- Mesas en Terraza Exterior
-(2, 2),  
-(2, 8),  
-(3, 10), -- Mesas en Sala Privada
-(3, 6);
+(2, 6),
+(1, 8),  
+(1, 8),  
+(1, 8),  
+(1, 8),  
+(2, 6),
+(2, 6), 
+(1, 6),
+(1, 6),
+(1, 6),
+(1, 6),
+(2, 6), 
+(3, 4), 
+(1, 8),  
+(1, 8),  
+(1, 8),  
+(1, 8),  
+(3, 4), 
+(3, 4), 
+(2, 2), 
+(2, 4), 
+(2, 4), 
+(2, 2), 
+(3, 4); 
 
 INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, estado_ocupacion) VALUES
 (1, 1, '2024-11-08 12:00:00', '2024-11-08 13:00:00', 'Registrada'),
