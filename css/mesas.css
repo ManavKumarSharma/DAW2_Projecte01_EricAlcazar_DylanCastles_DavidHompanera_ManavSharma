@@ -8,6 +8,7 @@ html, body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    background-color: rgb(190, 190, 190);
 }
 
 #container_header {
@@ -26,164 +27,129 @@ html, body {
 
 #mesas_main {
     width: 100%;
-    height: 75%;
-    background-color: rgb(255, 255, 255);
+    height: 80%;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
-/* ESTILOS SALAS */
-.titulosSalas {
-    font-size: small;
-    font-weight: 200;
-    color: white;
-    margin-bottom: 0;
-}
-.divTitulo{
+#mapaRestaurante_contenedor {
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.divTituloSala{
-    width: 65%;
-    display: flex;
-    justify-content: center;
-}
-#privTitulo {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    height: 35%;
+#mapa {
+    height: 75vh;
 }
 
-#mapa_restaurante {
-    background-color: transparent;
-    width: 750px;
-    height: 450px;
-}
-
-#seccionGrande {
-    width: 100%;
-    height: 75%;
-    display: flex;
-    background-color: transparent;
-}   
-
-#salaTerraza1 {
-    background-color: #855d62;
-    width: 13%;
-    height: 65%;
-    display: flex;
-    flex-direction: column;
-}
-#salasInteriores {
-    width: 74%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-#salaGrande1 {
-    width: 50%;
-    height: 100%;
-    background-color: #867476;
-    display: flex;
-    flex-direction: column;
-    border-right: solid 0.5px #6d484d;
-}
-#salaPrivada1 {
-    width: 35%;
-    height: 100%;
-    background-color: #5F282E;
-    display: flex;
-    flex-direction: column;
-}
-
-#salaPrivada2 {
-    width: 35%;
-    height: 35%;
-    background-color: #5F282E;
-    margin-bottom: 0;
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-}
-#salaGrande2 {
-    width: 50%;
-    height: 100%;
-    background-color: #867476;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    border-left: solid 0.5px #6d484d;
-}
-#salaPrivada3 {
-    width: 35%;
-    height: 100%;
-    background-color: #5F282E;
-    display: flex;
-    flex-direction: column;
-}
-#salaPrivada4 {
-    width: 35%;
-    height: 35%;
-    background-color: #5F282E;
-    margin-bottom: 0;
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-}
-#salaTerraza2 {
-    background-color: #855d62;
-    width: 13%;
-    height: 65%;
-    display: flex;
-    flex-direction: column;
-}
-#salaTerraza3 {
-    background-color: #855d62;
-    width: 48.05%;
-    height: 25%;
-    margin: auto;
-}
-#cocina {
+/* Divs para espaciado */
+#divGrande {
+    width: 146.9vh;
+    height: 75vh;
     position: absolute;
-    background-color: rgb(104, 104, 104);
-    width: 100px;
-    height: 170px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-#terraza1Area {
-    background-color: red;
+#divEntrada {
+    width: 13.2%;
+    height: 8%;
+}
+#divEntrada:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+#divSalas {
     width: 100%;
-    height: 90%;
+    height: 65.4%;
+    display: flex;
 }
-#terraza2Area {
-    background-color: red;
+#divTerraza3 {
+    width: 62.4%;
+    height: 100%;
+}
+#divTerraza3:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+#divAbajo {
+    width: 72.9%;
+    height: 26.6%;
+    display: flex;
+}
+#divTerrazasLados {
     width: 100%;
-    height: 90%;
+    height: 59.3%;
 }
-#priv1Area {
-    background-color: red;
+#divTerrazasLados:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+#divLados {
+    width: 13.5%;
+    height: 100%;
+}
+#divSala1 {
+    width: 36.5%;
+    height: 100%;
+    display: flex;
+}
+#divSala1:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+#divSala2 {
+    width: 36.5%;
+    height: 100%;
+    display: flex;
+}
+#divSala2:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+#divSalasPriv {
+    width: 37.4%;
+    height: 100%;
+}
+#divSalaPriv {
     width: 100%;
-    height: 82%;
+    height: 40.7%;
 }
-#priv2Area {
-    background-color: red;
-    width: 100%;
-    height: 82%;
+#divSalaPriv:hover {
+    background-color: rgba(0,0,0,0.2);
 }
-#priv3Area {
-    background-color: red;
-    width: 100%;
-    height: 82%;
+#divTerrazaPriv {
+    height: 100%;
+    width: 37.4%;
 }
-#priv4Area {
-    background-color: red;
-    width: 100%;
-    height: 82%;
+#divSalaPrivAbajo {
+    width: 18.8%;
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    flex-direction: column;
 }
+.salaGrandeDividida {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#mesasCentro {
+    margin: 4px;
+}
+
+/* ------------------ */
+
+/* mesas */
+.mesa {
+    height: 12vh;
+}
+.mesa:hover {
+    transform: scale(1.2);
+}
+/* ------ */
 
 #icon_profile_header, #container_header {
     display: flex;
@@ -236,4 +202,30 @@ html, body {
     color: rgb(177, 8, 8);
     height: 9vh;
     
+}
+
+#container_title_header_2 {
+    margin-right: 1.706vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#bind_result {
+    width: 100%;
+    text-align: center;
+}
+
+#img_dinero_perdido {
+    width: 50vw;
+}
+
+/* Efecto hover sobre las filas de la tabla */
+#reservas_table tbody tr:hover {
+    background-color: #f5f5f5;  /* Cambia el fondo cuando se pase el mouse */
+    cursor: pointer;            /* Cambia el cursor a mano (opcional) */
+}
+
+/* Si quieres cambiar el color de las celdas cuando se hace hover */
+#reservas_table tbody tr:hover td {
+    color: #333;  /* Cambia el color del texto de las celdas (opcional) */
 }
