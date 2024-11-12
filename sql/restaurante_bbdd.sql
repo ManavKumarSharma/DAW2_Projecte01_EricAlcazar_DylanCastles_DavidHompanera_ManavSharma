@@ -48,10 +48,9 @@ FOREIGN KEY(id_camarero) REFERENCES tbl_camarero(id_camarero);
 -- INSERTS DE PRUEBA ERIC:
 
 INSERT INTO tbl_sala (ubicacion_sala) VALUES
-('Planta Baja'),
-('Planta Alta'),
-('Terraza Exterior'),
-('Comedor Privado');
+('Sala'),
+('Sala Privada'),
+('Terrza');
 
 
 INSERT INTO tbl_camarero (nombre_camarero, apellidos_camarero, username, password) VALUES
