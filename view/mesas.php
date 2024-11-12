@@ -1,16 +1,16 @@
 <?php
+// Incluimos el archivo de conexión a la base de datos
+include '../php/conexion.php';
+
 // Iniciamos la sesión
 session_start();
 
 // Verificamos si la sesión del camarero está activa
-if (empty($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
     // Si no está activo, redirigimos a la página de inicio de sesión
     header("Location: ./index.php");
     exit();
 }
-
-// Incluimos el archivo de conexión a la base de datos
-include '../php/conexion.php';
 
 // Obtenemos el ID del camarero desde la sesión
 $id_camarero = $_SESSION['user_id'];
@@ -47,97 +47,78 @@ $id_camarero = $_SESSION['user_id'];
                 <span class="span_subtitle">Gestión de mesas</span>
             </div>
 
-            <!-- Contenedor de navegación -->
-            <nav id="nav_header">
-                <a href="./historico.php"><button class="btn btn-danger btn_custom_logOut">Histórico de reservas</button></a>
+            <!-- Contenedor del Log Out -->
+            <div id="container_logOut_header">
                 <a href="#"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
-            </nav>
+            </div>
         </header>
 
     <main id="mesas_main">
-    
-        <div id="mapa_restaurante">
-            <div id="seccionGrande">
-                <div id="salaTerraza1" class="salaComun">
-                    <div class="divTitulo">
-                        <p class="titulosSalas">TERRAZA 1</p>
-                    </div>
-                    <div id="terraza1Area">
-                    <!-- ----------------------------------------------------------------- -->
-                    </div>
+        <div id="mapaRestaurante_contenedor">
+            <img src="../img/mapa_restaurante2.png" alt="" id="mapa">
+            <div id="divGrande">
+                <div id="divEntrada">
                 </div>
-                <div id="salasInteriores">
-                    <div id="salaGrande1" class="salaComun">
-                        <div id="privTitulo">
-                            <div id="salaPrivada1" class="salaComun">
-                                <div class="divTitulo">
-                                    <p class="titulosSalas">PRIV 1</p>
-                                </div>
-                                <div id="priv1Area">
-                                <!-- ----------------------------------------------------------------- -->
-                                </div>
-                            </div>
-                            <div class="divTituloSala">
-                                <p class="titulosSalas">SALA 1</p>
-                            </div>
+                <div id="divSalas">
+                    <div id="divLados">
+                        <div id="divTerrazasLados" class="terrazasVerticales">
+                            <img src="../img/mesaD6.png" alt="" class="mesa">
+                            <img src="../img/mesaD6.png" alt="" class="mesa">
                         </div>
-                        <div id="salaPrivada2" class="salaComun">
-                            <div class="divTitulo">
-                                <p class="titulosSalas">PRIV 2</p>
-                            </div>
-                            <div id="priv2Area">
-                                <!-- ----------------------------------------------------------------- -->
-                            </div>
+                        <div id="divSalaPriv" class="comunSalasMesa">
+                            <img src="../img/mesaD4.png" alt="" class="mesa">
                         </div>
                     </div>
-                    <div id="salaGrande2" class="salaComun">
-                        <div id="privTitulo">
-                            <div class="divTituloSala">
-                                <p class="titulosSalas">SALA 2</p>
-                            </div>
-                            <div id="salaPrivada3" class="salaComun">
-                                <div class="divTitulo">
-                                    <p class="titulosSalas">PRIV 3</p>
-                                </div>
-                                <div id="priv3Area">
-                                <!-- ----------------------------------------------------------------- -->
-                                </div>
-                            </div>
+                    <div id="divSala1">
+                        <div class="salaGrandeDividida">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
                         </div>
-                        <div id="salaPrivada4" class="salaComun">
-                            <div class="divTitulo">
-                                <p class="titulosSalas">PRIV 4</p>
-                            </div>
-                            <div id="priv4Area">
-                            <!-- ----------------------------------------------------------------- -->
-                            </div>
+                        <div class="salaGrandeDividida">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
                         </div>
                     </div>
-                    <div id="cocina" class="salaComun">
-                        <div class="divTitulo">
-                            <p class="titulosSalas">COCINA</p>
+                    <div id="divSala2">
+                        <div class="salaGrandeDividida">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                        </div>
+                        <div class="salaGrandeDividida">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD6.png" alt="" class="mesa" id="mesasCentro">
+                            <img src="../img/mesaD8.png" alt="" class="mesa" id="mesasCentro">
+                        </div>
+                    </div>
+                    <div id="divLados">
+                        <div id="divTerrazasLados" class="terrazasVerticales">
+                            <img src="../img/mesaD6.png" alt="" class="mesa">
+                            <img src="../img/mesaD6.png" alt="" class="mesa">
+                        </div>
+                        <div id="divSalaPriv" class="comunSalasMesa">
+                            <img src="../img/mesaD4.png" alt="" class="mesa">
                         </div>
                     </div>
                 </div>
-                <div id="salaTerraza2" class="salaComun">
-                    <div class="divTitulo">
-                        <p class="titulosSalas">TERRAZA 2</p>
+                <div id="divAbajo">
+                    <div id="divSalaPrivAbajo" class="comunSalasMesa">
+                        <img src="../img/mesaD4.png" alt="" class="mesa">
                     </div>
-                    <div id="terraza2Area">
-                    <!-- ----------------------------------------------------------------- -->
+                    <div id="divTerraza3" class="comunSalasMesas">
+                        <img src="../img/mesaD2.png" alt="" class="mesa">
+                        <img src="../img/mesaD4.png" alt="" class="mesa">
+                        <img src="../img/mesaD4.png" alt="" class="mesa">
+                        <img src="../img/mesaD2.png" alt="" class="mesa">
+                    </div>
+                    <div id="divSalaPrivAbajo" class="comunSalasMesa">
+                        <img src="../img/mesaD4.png" alt="" class="mesa">
                     </div>
                 </div>
             </div>
-
-            <div id="salaTerraza3" class="salaComun">
-                <div class="divTitulo">
-                    <p class="titulosSalas">TERRAZA 3</p>
-                </div>
-            </div>
-
         </div>
-
     </main>
-
 </body>
 </html>
