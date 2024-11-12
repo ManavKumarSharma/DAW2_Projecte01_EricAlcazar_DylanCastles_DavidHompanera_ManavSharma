@@ -279,6 +279,21 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
             </div>
         </div>
     </main>
-
+    
+    <!-- Modal para cambiar el estado de la mesa -->
+    <div id="mesaModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Estado de la Mesa</h2>
+            <p id="mesaInfo">Mesa seleccionada: <span id="mesaId"></span></p>
+            <form action="../php/estadoMesaRecuperar.php" method="POST">
+                <input type="hidden" name="mesa_id" id="mesa_id">
+                <input type="hidden" name="estado" id="estado_mesa" value="ocupada">
+                <button type="submit" class="btn btn-success" onclick="document.getElementById('estado_mesa').value = 'ocupada';">Marcar como Ocupada</button>
+                <button type="submit" class="btn btn-primary" onclick="document.getElementById('estado_mesa').value = 'libre';">Marcar como Libre</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/modal.js"></script>
 </body>
 </html>
