@@ -121,27 +121,7 @@ html, body {
 #divSalaPrivAbajo {
     width: 18.8%;
     height: 100%;
-}
-#divSalaPrivAbajo:hover {
-    background-color: rgba(0,0,0,0.2);
-}
-.comunSalasMesas {
-    padding: 4%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.comunSalasMesa {
-    padding: 4%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.terrazasVerticales {
-    padding: 4%;
-    box-sizing: border-box;
+    background-color: yellow;
     display: flex;
     align-items: center;
     justify-content:end;
