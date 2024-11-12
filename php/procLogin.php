@@ -8,14 +8,14 @@ $errors = [];
 // Validamos que el formulario se envíe correctamente
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $errors[] = 'Solicitud inválida.';
-    redirect_with_errors('../view/index.php', $errors);
+    redirect_with_errors('../php/cerrarSesion.php', $errors);
     exit();
 }
 
 // Validamos que los campos no estén vacíos
 if (empty($_POST['user']) || empty($_POST['contrasena'])) {
     $errors[] = 'Usuario y contraseña son obligatorios.';
-    redirect_with_errors('../view/index.php', $errors);
+    redirect_with_errors('../php/cerrarSesion.php', $errors);
     exit();
 }
 
@@ -59,5 +59,5 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 // Cerramos la conexión
 mysqli_close($conn);
-redirect_with_errors('../view/index.php', $errors);
+redirect_with_errors('../php/cerrarSesion.php', $errors);
 ?>

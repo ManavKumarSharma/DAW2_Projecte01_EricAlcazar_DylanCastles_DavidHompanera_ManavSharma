@@ -8,7 +8,7 @@ session_start();
 // Verificamos si la sesión del camarero está activa
 if (empty($_SESSION['user_id'])) {
     // Si no está activo, redirigimos a la página de inicio de sesión
-    header("Location: ./index.php");
+    header("Location: ../php/cerrarSesion.php");
     exit();
 }
 
@@ -53,7 +53,7 @@ $id_camarero = $_SESSION['user_id'];
             <!-- Contenedor de navegación -->
             <nav id="nav_header">
                 <a href="./historico.php"><button class="btn btn-danger btn_custom_logOut">Histórico de reservas</button></a>
-                <a href="#"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
+                <a href="../php/cerrarSesion.php"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
             </nav>
         </header>
 
