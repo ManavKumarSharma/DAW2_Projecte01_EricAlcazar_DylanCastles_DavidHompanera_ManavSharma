@@ -13,6 +13,19 @@ require '../php/conexion.php';
 // Recuperamos el ID del usuario
 $id_camarero = $_SESSION['user_id'];
 
+$valid_options = ['id_ocupacion', 'nombre_camarero', 'apellidos_camarero', 'id_mesa', 'ubicacion_sala', 'fecha_inicio', 'fecha_final', 'estado_ocupacion', 'DESC', 'ASC'];
+
+if (isset($_GET['columName']) && isset($_GET['orderBy']) && in_array($_GET['columName'], $valid_options) && in_array($_GET['columName'], $valid_options)) {
+    $column_name = htmlspecialchars($_GET['columName']);
+    $order_by = htmlspecialchars($_GET['orderBy']);
+    mysqli_real_escape_string($conn, $column_name);
+    mysqli_real_escape_string($conn, $order_by);
+
+    $add_query = "ORDER BY $column_name $order_by";
+} else {
+    $add_query = "ORDER BY o.fecha_inicio DESC";
+}
+
 // Preparamos la consulta para recuperar las reservas Registradas y Ocupadas
 $query = "SELECT 
             o.id_ocupacion,
@@ -25,19 +38,17 @@ $query = "SELECT
             o.estado_ocupacion
         FROM 
             tbl_ocupacion o
-        JOIN 
+        INNER JOIN 
             tbl_camarero c ON o.id_camarero = c.id_camarero
-        JOIN 
+        INNER JOIN 
             tbl_mesa m ON o.id_mesa = m.id_mesa
-        JOIN 
+        INNER JOIN 
             tbl_sala s ON m.id_sala = s.id_sala
         WHERE o.estado_ocupacion IN ('Registrada')
-        ORDER BY 
-            o.fecha_inicio DESC";
-
-$stmt = mysqli_stmt_init($conn);
+        $add_query";
 
 // Ejecutamos la consulta
+$stmt = mysqli_stmt_init($conn);
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
@@ -83,7 +94,7 @@ mysqli_close($conn);
     </header>
 
     <!-- Verificamos que haya resultado a mostrar en la consulta -->
-    <?php if (!$row = mysqli_fetch_assoc($result)): ?>
+    <?php if (mysqli_num_rows($result) == 0): ?>
         <div id="bind_result">
             <h3>Ooops...</h3>
             <h4>Parece que no hay reservas registradas...</h4>
@@ -93,22 +104,51 @@ mysqli_close($conn);
         </div>
     <?php else: ?>
 
+    <button id="filter_button">Filter</button>
+
     <!-- Tabla de reservas -->
     <div class="container mt-5">
         <h2 class="mb-4">Histórico de Reservas Registradas</h2>
         <table class="table table-striped table-roughedged table-bordered" id="reservas_table">
             <thead class="table-active">
                 <tr>
-                    <th scope="col">ID Reserva asdasdas</th>
-                    <th scope="col">Camarero</th>
-                    <th scope="col">Mesa</th>
-                    <th scope="col">Sala</th>
-                    <th scope="col">Fecha de Inicio</th>
-                    <th scope="col">Fecha de Finalización</th>
+                    <!-- Formulario para filtrar en orden de columna -->
+                    <th scope="col">
+                        <a href="<?php echo (empty($_GET['orderBy']) || $_GET['orderBy'] == 'ASC') ? './historico.php?columName=id_ocupacion&orderBy=DESC' : './historico.php?columName=id_ocupacion&orderBy=ASC'  ?>" class="a_order_column">
+                            ID Reserva
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a href="<?php echo (empty($_GET['orderBy']) || $_GET['orderBy'] == 'ASC') ? './historico.php?columName=nombre_camarero&orderBy=DESC' : './historico.php?columName=nombre_camarero&orderBy=ASC'  ?>" class="a_order_column">
+                            Camarero
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a href="<?php echo (empty($_GET['orderBy']) || $_GET['orderBy'] == 'ASC') ? './historico.php?columName=id_mesa&orderBy=DESC' : './historico.php?columName=id_mesa&orderBy=ASC'  ?>" class="a_order_column">
+                            Mesa
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a href="<?php echo (empty($_GET['orderBy']) || $_GET['orderBy'] == 'ASC') ? './historico.php?columName=ubicacion_sala&orderBy=DESC' : './historico.php?columName=ubicacion_sala&orderBy=ASC'  ?>" class="a_order_column">
+                            Sala
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a href="<?php echo (empty($_GET['orderBy']) || $_GET['orderBy'] == 'ASC') ? './historico.php?columName=fecha_inicio&orderBy=DESC' : './historico.php?columName=fecha_inicio&orderBy=ASC'  ?>" class="a_order_column">
+                            Fecha de Inicio
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a href="<?php echo (empty($_GET['orderBy']) || $_GET['orderBy'] == 'ASC') ? './historico.php?columName=fecha_final&orderBy=DESC' : './historico.php?columName=fecha_final&orderBy=ASC'  ?>" class="a_order_column">
+                            Fecha de Finalización
+                        </a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <?php 
+                // Bucle while para mostrar los resultados
+                while ($row = mysqli_fetch_assoc($result)): ?>
                     <tr>
                         <th scope="row"><?php echo $row['id_ocupacion']; ?></th>
                         <td><?php echo $row['nombre_camarero'] . ' ' . $row['apellidos_camarero']; ?></td>
@@ -122,5 +162,7 @@ mysqli_close($conn);
         </table>
     </div>
     <?php endif; ?>
+
+    <script src="../js/filtradoHistorico.js"></script>
 </body>
 </html>

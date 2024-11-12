@@ -165,6 +165,7 @@ html, body {
 /* mesas */
 .mesa {
     height: 12vh;
+    cursor: pointer;
 }
 .mesa:hover {
     transform: scale(1.2);
@@ -249,3 +250,13 @@ html, body {
 #reservas_table tbody tr:hover td {
     color: #333;  /* Cambia el color del texto de las celdas (opcional) */
 }
+
+.a_order_column {
+    all: unset;
+}
+
+.a_order_column:hover {
+    all: unset;
+    cursor: pointer;
+}
+
