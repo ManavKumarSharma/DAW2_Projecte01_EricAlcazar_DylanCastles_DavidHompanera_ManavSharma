@@ -1,7 +1,5 @@
 <?php
-// Incluimos el archivo de conexión a la base de datos
-require '../php/conexion.php';
-
+require '../php/conexion.php'; 
 try {
     $sqlRecuperarEstados = "SELECT id_mesa, estado_ocupacion FROM tbl_ocupacion;";
 
@@ -15,16 +13,18 @@ try {
     if($rows === 0) {
         echo "No se ha encontrado ninguna mesa.";
     } else {
-        $_SESSION['ARRAYocupaciones'] = mysqli_fetch_assoc($resultado);
+        $ARRAYocupaciones = array();
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $ARRAYocupaciones[$fila['id_mesa']] = $fila['estado_ocupacion'];
+        }
+        $_SESSION['ARRAYocupaciones'] = $ARRAYocupaciones;
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-
-
-    header("Location: ../view/mesas.php");
 
     
 } catch (Exception $e) {
     echo "Error al encontrar ususario: " . $e->getMessage();
 }
+
 ?>

@@ -12,18 +12,12 @@ if (empty($_SESSION['user_id'])) {
     exit();
 }
 
-include_once("../php/estadoMesaRecuperar.php");
+include ("../php/estadoMesaRecuperar.php");
 
 // Obtenemos el ID del camarero desde la sesión
 $id_camarero = $_SESSION['user_id'];
 
-
-if (isset($_SESSION['ARRAYocupaciones'])) {
-    $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
-    foreach ($ARRAYocupaciones as $mesa) {
-        echo $mesa['id_mesa'] . ": " . $mesa['estado_ocupacion'] . "<br>";
-    }
-}
+$ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
 
 ?>
 
@@ -75,85 +69,85 @@ if (isset($_SESSION['ARRAYocupaciones'])) {
                     <div id="divLados">
                         <div id="divTerrazasLados" class="terrazasVerticales">
                             <img src="<?php 
-                                if ($ARRAYocupaciones["mesa1"] === "ocupada") {
+                                if ($ARRAYocupaciones["1"] === "Ocupado") {
                                     echo '../img/mesaD6ocupada.png';
                                 } else {
                                     echo '../img/mesaD6.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa1">
+                            ?>" alt="" class="mesa"  style="display: block;" id="1">
 
                             <img src="<?php 
-                                if ($ARRAYocupaciones["mesa6"] === "ocupada") {
+                                if ($ARRAYocupaciones["6"] === "Ocupado") {
                                     echo '../img/mesaD6ocupada.png';
                                 } else {
                                     echo '../img/mesaD6.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa6">
+                            ?>" alt="" class="mesa"  style="display: block;" id="6">
                         </div>
 
                         <div id="divSalaPriv" class="comunSalasMesa">
                             <img src="<?php 
-                                if ($ARRAYocupaciones["mesa13"] === "ocupada") {
+                                if ($ARRAYocupaciones["13"] === "Ocupado") {
                                     echo '../img/mesaD4ocupada.png';
                                 } else {
                                     echo '../img/mesaD4.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa13">
+                            ?>" alt="" class="mesa"  style="display: block;" id="13">
 
                         </div>
                     </div>
                     <div id="divSala1">
                         <div class="salaGrandeDividida">
                         <img src="<?php 
-                                if ($ARRAYocupaciones["mesa2"] === "ocupada") {
+                                if ($ARRAYocupaciones["2"] === "Ocupado") {
                                     echo '../img/mesaD8ocupada.png';
                                 } else {
                                     echo '../img/mesaD8.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa2">
+                            ?>" alt="" class="mesa"  style="display: block;" id="2">
                             
                             <img src="<?php 
-                                if ($ARRAYocupaciones["mesa8"] === "ocupada") {
+                                if ($ARRAYocupaciones["8"] === "Ocupado") {
                                     echo '../img/mesaD6ocupada.png';
                                 } else {
                                     echo '../img/mesaD6.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa8">
+                            ?>" alt="" class="mesa"  style="display: block;" id="8">
 
                             <img src="<?php 
-                                if ($ARRAYocupaciones["mesa14"] === "ocupada") {
+                                if ($ARRAYocupaciones["14"] === "Ocupado") {
                                     echo '../img/mesaD8ocupada.png';
                                 } else {
                                     echo '../img/mesaD8.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa14">
+                            ?>" alt="" class="mesa"  style="display: block;" id="14">
                         </div>
 
                         <div class="salaGrandeDividida">
 
                         <img src="<?php 
-                                if ($ARRAYocupaciones["mesa3"] === "ocupada") {
+                                if ($ARRAYocupaciones["3"] === "Ocupado") {
                                     echo '../img/mesaD8ocupada.png';
                                 } else {
                                     echo '../img/mesaD8.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa3">
+                            ?>" alt="" class="mesa"  style="display: block;" id="3">
 
                             <img src="<?php 
-                                if ($ARRAYocupaciones["mesa9"] === "ocupada") {
+                                if ($ARRAYocupaciones["9"] === "Ocupado") {
                                     echo '../img/mesaD6ocupada.png';
                                 } else {
                                     echo '../img/mesaD6.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa9">
+                            ?>" alt="" class="mesa"  style="display: block;" id="9">
 
                                                 <img src="<?php 
-                                if ($ARRAYocupaciones["mesa15"] === "ocupada") {
+                                if ($ARRAYocupaciones["15"] === "Ocupado") {
                                     echo '../img/mesaD8ocupada.png';
                                 } else {
                                     echo '../img/mesaD8.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="mesa15">
+                            ?>" alt="" class="mesa"  style="display: block;" id="15">
 
                         </div>
                     </div>
