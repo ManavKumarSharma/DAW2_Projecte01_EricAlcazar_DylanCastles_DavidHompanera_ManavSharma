@@ -99,7 +99,7 @@ mysqli_close($conn);
         <table class="table table-striped table-roughedged table-bordered" id="reservas_table">
             <thead class="table-active">
                 <tr>
-                    <th scope="col">ID Reserva</th>
+                    <th scope="col">ID Reserva asdasdas</th>
                     <th scope="col">Camarero</th>
                     <th scope="col">Mesa</th>
                     <th scope="col">Sala</th>
