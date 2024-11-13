@@ -147,8 +147,8 @@ mysqli_close($conn);
 
         <nav id="nav_header">
             <a href="./mesas.php"><button class="btn btn-danger btn_custom_logOut">Reservar mesas</button></a>
-            <a href="#"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
-        </nav>
+            <a href="../php/cerrarSesion.php"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
+            </nav>
     </header>
 
     <!-- Verificamos que haya resultado a mostrar en la consulta -->
