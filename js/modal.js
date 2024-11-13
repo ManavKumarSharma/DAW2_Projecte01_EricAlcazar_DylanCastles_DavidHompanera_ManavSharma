@@ -1,27 +1,11 @@
-const modal = document.getElementById("mesaModal");
-        const span = document.getElementsByClassName("close")[0];
-        let selectedMesaId = null;
+const botonMesas = document.querySelectorAll('.mesa');
 
-        function openModal(mesa) {
-            selectedMesaId = mesa.getAttribute("data-mesa-id");
-            document.getElementById("mesaId").innerText = selectedMesaId;
-            document.getElementById("mesa_id").value = selectedMesaId;
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        const mesas = document.querySelectorAll('.mesa');
-        mesas.forEach(mesa => {
-            mesa.addEventListener('click', function() {
-                openModal(mesa);
-            });
+botonMesas.forEach(function (botonMesas) {
+    if (botonMesas) {
+        botonMesas.addEventListener('click', function () {    
+            window.location.href = `../view/mesas.php?id=${botonMesas.id}`;
         });
+    }
+});
+
+
