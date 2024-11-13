@@ -4,10 +4,8 @@ if (button_filter) {
     button_filter.addEventListener('click', function () {
 
         let elementoPadre = document.getElementById("contenedorFiltros");
-        let botonAplicarFiltros = document.getElementById("botonAplicarFiltros");
 
         elementoPadre.style.display = "flex";
-        elementoPadre.insertBefore(nuevoSelect, botonAplicarFiltros);
     });
 }
 
