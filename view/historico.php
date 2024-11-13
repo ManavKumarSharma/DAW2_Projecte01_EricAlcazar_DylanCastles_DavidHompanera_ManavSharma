@@ -3,7 +3,7 @@
 session_start();
 if (empty($_SESSION['user_id'])) {
     // En caso que no esté inicializada redirigir al Log In
-    header("Location: ../php/cerrarSession.php");
+    header("Location: ./index.php");
     exit();
 }
 
@@ -114,7 +114,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
- 
 
 <!DOCTYPE html>
 <html lang="en">
