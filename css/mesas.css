@@ -249,3 +249,9 @@ html, body {
 #reservas_table tbody tr:hover td {
     color: #333;  /* Cambia el color del texto de las celdas (opcional) */
 }
+
+
+
+#contenedorMesas{
+    display: none;
+}
