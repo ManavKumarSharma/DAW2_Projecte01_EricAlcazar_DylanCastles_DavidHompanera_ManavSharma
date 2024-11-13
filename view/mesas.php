@@ -1,6 +1,4 @@
 <?php
-// Incluimos el archivo de conexión a la base de datos
-require_once("../php/conexion.php");
 
 // Iniciamos la sesión
 session_start();
@@ -12,13 +10,18 @@ if (empty($_SESSION['user_id'])) {
     exit();
 }
 
-include ("../php/estadoMesaRecuperar.php");
+// Incluimos el archivo de conexión a la base de datos
+require '../php/conexion.php';
 
+require_once '../php/functions.php';
 // Obtenemos el ID del camarero desde la sesión
 $id_camarero = $_SESSION['user_id'];
 
-$ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
+// Recojemos la información del usuario que está guardado en la BBDD
+$info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
 
+// Cerramos la conexión
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +44,8 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
                 </div>
                 <!-- Contenedor de la información del usuario -->
                 <div id="username_profile_header">
-                    <p id="p_username_profile">DCastles</p>
-                    <span class="span_subtitle">Dylan Castles Cazalla</span>
+                    <p id="p_username_profile"><?php echo htmlspecialchars($info_waiter['username']) ?></p>
+                    <span class="span_subtitle"><?php echo htmlspecialchars($info_waiter['name']) . " " . htmlspecialchars($info_waiter['surname']) ?></span>
                 </div>
             </div>
 
