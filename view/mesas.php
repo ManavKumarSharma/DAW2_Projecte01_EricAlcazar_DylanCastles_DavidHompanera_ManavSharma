@@ -12,16 +12,15 @@ if (empty($_SESSION['user_id'])) {
 
 // Incluimos el archivo de conexión a la base de datos
 require '../php/conexion.php';
-
+require '../php/estadoMesaRecuperar.php';
 require_once '../php/functions.php';
+
 // Obtenemos el ID del camarero desde la sesión
 $id_camarero = $_SESSION['user_id'];
 
 // Recojemos la información del usuario que está guardado en la BBDD
 $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
 
-// Cerramos la conexión
-mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
