@@ -3,7 +3,7 @@
 session_start();
 if (empty($_SESSION['user_id'])) {
     // En caso que no esté inicializada redirigir al Log In
-    header("Location: ./index.php");
+    header("Location: ../php/cerrarSession.php");
     exit();
 }
 
@@ -146,8 +146,8 @@ mysqli_close($conn);
 
         <nav id="nav_header">
             <a href="./mesas.php"><button class="btn btn-danger btn_custom_logOut">Reservar mesas</button></a>
-            <a href="../php/cerrarSesion.php"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
-            </nav>
+            <a href="#"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
+        </nav>
     </header>
 
     <!-- Verificamos que haya resultado a mostrar en la consulta -->
