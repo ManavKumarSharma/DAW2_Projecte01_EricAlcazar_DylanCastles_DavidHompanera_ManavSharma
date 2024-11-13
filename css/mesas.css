@@ -209,7 +209,7 @@ html, body {
 .btn_custom_logOut {
     border: solid 1px rgb(177, 8, 8);
     background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Esta línea agrega la sombra */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn_custom_logOut:hover {
@@ -220,7 +220,7 @@ html, body {
 .btn_custom_filter {
     border: solid 1px rgb(177, 8, 8);
     background-color: rgb(190, 190, 190);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Esta línea agrega la sombra */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .btn_custom_filter:hover {
     background-color: rgb(177, 8, 8);
@@ -230,20 +230,18 @@ html, body {
 .btn_custom_filterOK {
     border: solid 2px rgb(177, 8, 8);
     background-color: rgb(133, 133, 133);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Esta línea agrega la sombra */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .btn_custom_filterOK:hover {
     background-color: rgb(177, 8, 8);
     border: solid 1px rgb(177, 8, 8);
 }
 
-
 #title_header {
     all: unset;
     font-size: 7vh;
     color: rgb(177, 8, 8);
     height: 9vh;
-    
 }
 
 #container_title_header_2 {
@@ -263,13 +261,12 @@ html, body {
 
 /* Efecto hover sobre las filas de la tabla */
 #reservas_table tbody tr:hover {
-    background-color: #f5f5f5;  /* Cambia el fondo cuando se pase el mouse */
-    cursor: pointer;            /* Cambia el cursor a mano (opcional) */
+    background-color: #f5f5f5;
+    cursor: pointer;
 }
 
-/* Si quieres cambiar el color de las celdas cuando se hace hover */
 #reservas_table tbody tr:hover td {
-    color: #333;  /* Cambia el color del texto de las celdas (opcional) */
+    color: #333;
 }
 
 .a_order_column {
@@ -280,7 +277,6 @@ html, body {
     all: unset;
     cursor: pointer;
 }
-
 
 #contenedorFiltros {
     border: 4px solid rgb(177, 8, 8);
@@ -306,7 +302,7 @@ html, body {
 .col-sm-2 {
     width: 50%;
     display: flex;
-    flex-direction: row-reverse
+    flex-direction: row-reverse;
 }
 
 .row {
@@ -359,7 +355,6 @@ html, body {
     height: 40px;
     margin-left: 40px;
 }
-
 #cerrar {
     cursor: pointer;
     font-size: 30px;
@@ -372,4 +367,113 @@ html, body {
 
 #cerrar:hover {
     color: #000;  /* Cambia el color de la "X" al pasar el mouse */
+}
+
+/* Media queries para diseño responsive */
+
+/* Mejoras en las media queries para dispositivos móviles */
+
+@media (max-width: 768px) {
+    #container_header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    #icon_profile {
+        width: 13vw;
+    }
+
+    #container-username, #container_title_header, #nav_header {
+        flex: 1 1 auto;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    #mapa {
+        height: 40vh; /* Reducir un poco más la altura del mapa */
+        max-width: 90vw;
+    }
+
+    #divGrande {
+        height: 40vh; /* Reducir un poco más la altura del mapa */
+        max-width: 90vw;
+    }
+
+    .mesa {
+        height: 6vh; /* Reducir el tamaño de las mesas en esta resolución */
+    }
+
+    #title_header {
+        font-size: 4.5vh;
+    }
+
+    #p_username_profile {
+        font-size: 3.5vh;
+    }
+
+    .btn_custom_logOut {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem;
+    }
+
+    .span_subtitle {
+        font-size: 1.5vh;
+    }
+    #divTerraza3 {
+        width: 62.4%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #container_header {
+        padding: 0.5rem;
+    }
+
+    #icon_profile {
+        width: 15vw;
+    }
+
+    #mapa {
+        height: 30vh; /* Aún más pequeño para pantallas muy pequeñas */
+        max-width: 80vw;
+    }
+
+    #divGrande {
+        height: 30vh; /* Aún más pequeño para pantallas muy pequeñas */
+        max-width: 80vw;
+    }
+
+    .mesa {
+        height: 4vh; /* Tamaño de mesa más pequeño para pantallas de 480px */
+    }
+
+    #title_header {
+        font-size: 4vh;
+    }
+
+    #p_username_profile {
+        font-size: 3vh;
+    }
+
+    .btn_custom_logOut {
+        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+        margin: 0.2rem;
+    }
+
+    .span_subtitle {
+        font-size: 1.4vh;
+    }
+    #divTerraza3 {
+        width: 62.4%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
