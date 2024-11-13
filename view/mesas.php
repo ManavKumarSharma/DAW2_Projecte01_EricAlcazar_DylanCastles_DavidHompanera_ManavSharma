@@ -280,23 +280,15 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
         </div>
     </main>
     
+    <?php
+   if (isset($_GET['id'])) {
+    ?>
     <div id="contenedorMesas">
         <form class="form-horizontal" id="formFiltros" action="" method="GET">
             <div id="tituloMesas">
                 <h3>Mesa</h3>
             </div>
             <div class="form-group row">
-                <div>
-                    <?php
-
-                    if ($ARRAYocupaciones["24"] === "Ocupado") {
-                        echo '<button type="submit">DEJAR LIBRE</button>';
-                    } else{
-                        echo '<button type="submit">RESERVAR</button>';
-                    }
-                    ?>
-                    
-                </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-offset-2 col-sm-10 contenedorBotonesAcciones">
@@ -305,7 +297,11 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
             </div>
         </form>
     </div>
-    <script src="../js/modal.js"></script>
 
+<?php
+   }
+   ?>
+
+<script src="../js/modal.js"></script>
 </body>
 </html>
