@@ -283,21 +283,72 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
     </main>
     
     <?php
-   if (isset($_GET['id'])) {
+   if (isset($_GET['id']) && ($_GET['id'] != "")) {
+        $id = htmlspecialchars($_GET['id']);
     ?>
     <div id="contenedorMesas">
-        <form class="form-horizontal" id="formFiltros" action="" method="GET">
+        <span class="close" id="cerrar">&times;</span>
             <div id="tituloMesas">
                 <h3>Mesa</h3>
             </div>
             <div class="form-group row">
             </div>
-            <div class="form-group row">
-                <div class="col-sm-offset-2 col-sm-10 contenedorBotonesAcciones">
-                    <button type="submit" class="btn botonesAcciones btn_custom_filterOK" id="botonAplicarMesas"><i class="fa-solid fa-check"></i></button>
-                </div>
-            </div>
-        </form>
+            <?php
+            $queryMesas = "SELECT 
+                                tbl_mesa.id_mesa,
+                                tbl_mesa.numero_sillas_mesa,
+                                tbl_sala.ubicacion_sala AS sala,
+                                tbl_ocupacion.id_ocupacion,
+                                tbl_ocupacion.estado_ocupacion AS estado,
+                                tbl_camarero.nombre_camarero AS camarero
+                            FROM 
+                                tbl_mesa
+                            INNER JOIN 
+                                tbl_sala ON tbl_mesa.id_sala = tbl_sala.id_sala
+                            INNER JOIN 
+                                tbl_ocupacion ON tbl_mesa.id_mesa = tbl_ocupacion.id_mesa
+                            INNER JOIN 
+                                tbl_camarero ON tbl_ocupacion.id_camarero = tbl_camarero.id_camarero
+                            WHERE 
+                                tbl_mesa.id_mesa = ?
+                                AND tbl_ocupacion.fecha_inicio = (
+                                    SELECT MAX(fecha_inicio)
+                                    FROM tbl_ocupacion
+                                    WHERE tbl_ocupacion.id_mesa = tbl_mesa.id_mesa
+                                );";
+            
+            $stmt_table_estado = mysqli_prepare($conn, $queryMesas);
+            mysqli_stmt_bind_param($stmt_table_estado, "i", $id);
+
+            // Ejecutar la declaración
+            mysqli_stmt_execute($stmt_table_estado);
+
+            // Obtener el resultado
+            $result = mysqli_stmt_get_result($stmt_table_estado);
+            
+            if (mysqli_num_rows($result) > 0) {
+                // Obtener los datos de la mesa
+                $mesaInfo = mysqli_fetch_assoc($result);
+
+                echo "Id de la mesa: " . $mesaInfo["id_mesa"] . "<br>";
+                echo "Numero de sillas: " . $mesaInfo["numero_sillas_mesa"] . "<br>";
+                echo "Ubicacion de la mesa: " . $mesaInfo["sala"] . "<br>";
+                
+                if ($mesaInfo['estado'] === "Ocupado") {
+                    echo'<br>';
+                    echo'<br>';
+                    echo '<a href="../php/liberarMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button>LIBERAR</button></a>';
+                } else {
+                    echo'<br>';
+                    echo'<br>';
+                    echo '<a href="../php/reservaMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button>OCUPAR</button></a>';
+
+                }
+            } else {
+                echo "Esta mesa no existe";
+            }
+
+            ?>
     </div>
 
 <?php
