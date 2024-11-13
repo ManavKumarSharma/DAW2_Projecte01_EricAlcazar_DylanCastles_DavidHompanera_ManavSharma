@@ -15,13 +15,43 @@ $id_camarero = $_SESSION['user_id'];
 
 $valid_options = ['id_ocupacion', 'nombre_camarero', 'apellidos_camarero', 'id_mesa', 'ubicacion_sala', 'fecha_inicio', 'fecha_final', 'estado_ocupacion', 'DESC', 'ASC'];
 
-if (isset($_GET['columName']) && isset($_GET['orderBy']) && in_array($_GET['columName'], $valid_options) && in_array($_GET['columName'], $valid_options)) {
+if (isset($_GET['columName']) && isset($_GET['orderBy']) && in_array($_GET['columName'], $valid_options) && in_array($_GET['orderBy'], $valid_options)) { 
     $column_name = htmlspecialchars($_GET['columName']);
     $order_by = htmlspecialchars($_GET['orderBy']);
     mysqli_real_escape_string($conn, $column_name);
     mysqli_real_escape_string($conn, $order_by);
 
     $add_query = "ORDER BY $column_name $order_by";
+} elseif (isset($_GET["filtrosBuscando"])) {
+    $id_ocupacion = mysqli_real_escape_string($conn, htmlspecialchars($_GET["id_reserva"]));
+    $camarero = mysqli_real_escape_string($conn, htmlspecialchars($_GET["camarero"]));
+    $mesa = mysqli_real_escape_string($conn, htmlspecialchars($_GET["id_mesa"]));
+    $ubicacion_sala = mysqli_real_escape_string($conn, htmlspecialchars($_GET["ubicacion_sala"]));
+    $fecha_inicio = mysqli_real_escape_string($conn, htmlspecialchars($_GET["fecha_inicio"]));
+    $fecha_final = mysqli_real_escape_string($conn, htmlspecialchars($_GET["fecha_final"]));
+
+
+    $add_query = "";
+
+    if ($id_ocupacion != "") {
+        $add_query .= "AND o.id_ocupacion = '$id_ocupacion' ";
+    }
+    if ($camarero != "") {
+        $add_query .= "AND c.nombre_camarero LIKE '%$camarero%' ";
+    }
+    if ($mesa != "") {
+        $add_query .= "AND m.id_mesa = '$mesa' ";
+    }
+    if ($ubicacion_sala != "") {
+        $add_query .= "AND s.ubicacion_sala LIKE '%$ubicacion_sala%' ";
+    }
+    if ($fecha_inicio != "") {
+        $add_query .= "AND o.fecha_inicio >= '$fecha_inicio' ";
+    }
+    if ($fecha_final != "") {
+        $add_query .= "AND o.fecha_final <= '$fecha_final' ";
+    }
+    
 } else {
     $add_query = "ORDER BY o.fecha_inicio DESC";
 }
@@ -68,6 +98,7 @@ mysqli_close($conn);
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/mesas.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Cabecera -->
@@ -94,7 +125,7 @@ mysqli_close($conn);
     </header>
 
     <!-- Verificamos que haya resultado a mostrar en la consulta -->
-    <?php if (mysqli_num_rows($result) == 0): ?>
+    <?php if (mysqli_num_rows($result) == 0 && !isset($_GET["filtrosBuscando"])): ?>
         <div id="bind_result">
             <h3>Ooops...</h3>
             <h4>Parece que no hay reservas registradas...</h4>
@@ -104,11 +135,12 @@ mysqli_close($conn);
         </div>
     <?php else: ?>
 
-    <button id="filter_button">Filter</button>
-
     <!-- Tabla de reservas -->
     <div class="container mt-5">
-        <h2 class="mb-4">Histórico de Reservas Registradas</h2>
+        <div id="headerTituloFiltros">
+            <h2 class="mb-4">Histórico de Reservas Registradas</h2>
+            <button class="btn btn-info btn_custom_filter" id="filter_button">Filtros</button>
+        </div>
         <table class="table table-striped table-roughedged table-bordered" id="reservas_table">
             <thead class="table-active">
                 <tr>
@@ -164,5 +196,56 @@ mysqli_close($conn);
     <?php endif; ?>
 
     <script src="../js/filtradoHistorico.js"></script>
+
+    <div id="contenedorFiltros">
+        <form class="form-horizontal" id="formFiltros" action="" method="GET">
+            <div id="tituloFiltros">
+                <h3>Filtros</h3>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="id_reserva">Id reserva:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id_reserva" placeholder="----------" name="id_reserva" value="<?php echo (isset($id_ocupacion) && $id_ocupacion != "") ? $id_ocupacion : "" ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="camarero">Nombre camarero:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="camarero" placeholder="----------" name="camarero" value="<?php echo (isset($camarero) && $camarero != "") ? $camarero : "" ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="id_mesa">Id mesa:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id_mesa" placeholder="----------" name="id_mesa" value="<?php echo (isset($mesa) && $mesa != "") ? $mesa : "" ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="ubicacion_sala">Ubicación sala:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="ubicacion_sala" placeholder="----------" name="ubicacion_sala" value="<?php echo (isset($ubicacion_sala) && $ubicacion_sala != "") ? $ubicacion_sala : "" ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="fecha_inicio">Fecha de inicio:</label>
+                <div class="col-sm-10">
+                    <input type="datetime-local" class="form-control" id="fecha_inicio" placeholder="----------" name="fecha_inicio" value="<?php echo (isset($fecha_inicio) && $fecha_inicio != "") ? $fecha_inicio : "" ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="fecha_final">Fecha final:</label>
+                <div class="col-sm-10">
+                    <input type="datetime-local" class="form-control" id="fecha_final" placeholder="----------" name="fecha_final" value="<?php echo (isset($fecha_final) && $fecha_final != "") ? $fecha_final : "" ?>">
+                </div>
+            </div>
+            <input type="hidden" name="filtrosBuscando">
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10 contenedorBotonesAcciones">
+                    <button type="submit" class="btn botonesAcciones btn_custom_filterOK" id="botonAplicarFiltros"><i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </body>
 </html>
