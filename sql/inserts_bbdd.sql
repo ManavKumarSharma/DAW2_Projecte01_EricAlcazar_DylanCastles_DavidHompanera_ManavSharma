@@ -65,3 +65,33 @@ INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, esta
 (24, 4, '2024-11-08 18:00:00', '2024-11-08 19:00:00', 'Registrada'),
 (9, 1, '2024-11-08 18:00:00', '2024-11-08 19:00:00', 'Registrada'),
 (2, 2, '2024-11-08 18:00:00', '2024-11-08 19:00:00', 'Registrada');
+
+
+-- INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, estado_ocupacion) VALUES
+-- (1, 1, NULL, NULL, 'Disponible'),
+-- (2, 2, NULL, NULL, 'Disponible'),
+-- (3, 3, NULL, NULL, 'Disponible'),
+-- (4, 4, NULL, NULL, 'Disponible'),
+-- (5, 1, NULL, NULL, 'Disponible'),
+-- (6, 2, NULL, NULL, 'Disponible'),
+-- (7, 3, NULL, NULL, 'Disponible'),
+-- (8, 4, NULL, NULL, 'Disponible'),
+-- (9, 1, NULL, NULL, 'Disponible'),
+-- (10, 2, NULL, NULL, 'Disponible'),
+-- (11, 3, NULL, NULL, 'Disponible'),
+-- (12, 4, NULL, NULL, 'Disponible'),
+-- (13, 1, NULL, NULL, 'Disponible'),
+-- (14, 2, NULL, NULL, 'Disponible'),
+-- (15, 3, NULL, NULL, 'Disponible'),
+-- (16, 4, NULL, NULL, 'Disponible'),
+-- (17, 1, NULL, NULL, 'Disponible'),
+-- (18, 2, NULL, NULL, 'Disponible'),
+-- (19, 3, NULL, NULL, 'Disponible'),
+-- (20, 4, NULL, NULL, 'Disponible'),
+-- (21, 1, NULL, NULL, 'Disponible'),
+-- (22, 2, NULL, NULL, 'Disponible'),
+-- (23, 3, NULL, NULL, 'Disponible'),
+-- (24, 4, NULL, NULL, 'Disponible'),
+-- (24, 4, NULL, NULL, 'Disponible'),
+-- (9, 1, NULL, NULL, 'Disponible'),
+-- (2, 2, NULL, NULL, 'Disponible');

@@ -1,7 +1,7 @@
 <?php
 require '../php/conexion.php'; 
 try {
-    $sqlRecuperarEstados = "SELECT id_mesa, estado_ocupacion FROM tbl_ocupacion;";
+    $sqlRecuperarEstados = "SELECT id_mesa, estado_ocupacion FROM tbl_ocupacion WHERE estado_ocupacion NOT LIKE 'Registrada';";
 
     $stmt_table_state = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt_table_state, $sqlRecuperarEstados);

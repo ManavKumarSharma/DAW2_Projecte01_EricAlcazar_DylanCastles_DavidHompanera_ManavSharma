@@ -216,19 +216,37 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                                 }
                             ?>" alt="" class="mesa"  style="display: block;" id="6">
                             
-                            <img src="../img/mesaD6.png" alt="" class="mesa" style="display: block;" id="mesa12">
+                            <img src="<?php 
+                                if ($ARRAYocupaciones["12"] === "Ocupado") {
+                                    echo '../img/mesaD6ocupada.png';
+                                } else {
+                                    echo '../img/mesaD6.png';
+                                }
+                            ?>" alt="" class="mesa"  style="display: block;" id="12">
                             
 
                         </div>
                         <div id="divSalaPriv" class="comunSalasMesa">
-                            <img src="../img/mesaD4.png" alt="" class="mesa" style="display: block;" id="mesa18">
+                        <img src="<?php 
+                                if ($ARRAYocupaciones["18"] === "Ocupado") {
+                                    echo '../img/mesaD4ocupada.png';
+                                } else {
+                                    echo '../img/mesaD4.png';
+                                }
+                            ?>" alt="" class="mesa"  style="display: block;" id="18">
 
                         </div>
                     </div>
                 </div>
                 <div id="divAbajo">
                     <div id="divSalaPrivAbajo" class="comunSalasMesa">
-                        <img src="../img/mesaD4.png" alt="" class="mesa" style="display: block;" id="mesa19">
+                        <img src="<?php 
+                                if ($ARRAYocupaciones["19"] === "Ocupado") {
+                                    echo '../img/mesaD4ocupada.png';
+                                } else {
+                                    echo '../img/mesaD4.png';
+                                }
+                            ?>" alt="" class="mesa"  style="display: block;" id="19">
 
                     </div>
                     <div id="divTerraza3" class="comunSalasMesas">
@@ -269,12 +287,12 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                     <div id="divSalaPrivAbajo" class="comunSalasMesa">
                         
                         <img src="<?php 
-                                    if ($ARRAYocupaciones["24"] === "Ocupado") {
-                                        echo '../img/mesaD4ocupada.png';
-                                    } else {
-                                        echo '../img/mesaD4.png';
-                                    }
-                                ?>" alt="" class="mesa"  style="display: block;" id="24">
+                                if ($ARRAYocupaciones["24"] === "Ocupado") {
+                                    echo '../img/mesaD4ocupada.png';
+                                } else {
+                                    echo '../img/mesaD4.png';
+                                }
+                            ?>" alt="" class="mesa"  style="display: block;" id="24">
                             
                     </div>
                 </div>
@@ -312,7 +330,6 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                             WHERE 
                                 tbl_mesa.id_mesa = ?
                                 ;";
-            
             $stmt_table_estado = mysqli_prepare($conn, $queryMesas);
             mysqli_stmt_bind_param($stmt_table_estado, "i", $id);
 
@@ -330,7 +347,7 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                 echo "Numero de sillas: " . $mesaInfo["numero_sillas_mesa"] . "<br>";
                 echo "Ubicacion de la mesa: " . $mesaInfo["sala"] . "<br>";
 
-                if ($mesaInfo['estado'] === "Ocupado") {
+                if ($_SESSION['ARRAYocupaciones'][$mesaInfo["id_mesa"]] === "Ocupado") {
                     echo "Camarero: " . $mesaInfo["camarero"] . "<br>";
                     echo'<br>';
                     echo'<br>';
