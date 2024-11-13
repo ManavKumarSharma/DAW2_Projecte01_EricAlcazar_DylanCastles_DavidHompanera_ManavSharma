@@ -319,6 +319,10 @@ html, body {
     display: flex;
 }
 
+#contenedorMesas{
+    display: none;
+}
+
 #tituloFiltros {
     width: 100%;
     display: flex;
