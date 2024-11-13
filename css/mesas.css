@@ -348,12 +348,16 @@ html, body {
 
 /* Mejoras en las media queries para dispositivos móviles */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #container_header {
         flex-direction: column;
         align-items: center;
         height: auto;
         padding: 0.5rem;
+    }
+
+    #icon_profile {
+        width: 13vw;
     }
 
     #container-username, #container_title_header, #nav_header {
@@ -407,7 +411,7 @@ html, body {
     }
 
     #icon_profile {
-        width: 8vw;
+        width: 15vw;
     }
 
     #mapa {
