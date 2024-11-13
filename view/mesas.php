@@ -1,6 +1,4 @@
 <?php
-// Incluimos el archivo de conexión a la base de datos
-require_once("../php/conexion.php");
 
 // Iniciamos la sesión
 session_start();
@@ -12,12 +10,16 @@ if (empty($_SESSION['user_id'])) {
     exit();
 }
 
-include ("../php/estadoMesaRecuperar.php");
+// Incluimos el archivo de conexión a la base de datos
+require '../php/conexion.php';
+require '../php/estadoMesaRecuperar.php';
+require_once '../php/functions.php';
 
 // Obtenemos el ID del camarero desde la sesión
 $id_camarero = $_SESSION['user_id'];
 
-$ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
+// Recojemos la información del usuario que está guardado en la BBDD
+$info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
 
 ?>
 
@@ -41,8 +43,8 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
                 </div>
                 <!-- Contenedor de la información del usuario -->
                 <div id="username_profile_header">
-                    <p id="p_username_profile">DCastles</p>
-                    <span class="span_subtitle">Dylan Castles Cazalla</span>
+                    <p id="p_username_profile"><?php echo htmlspecialchars($info_waiter['username']) ?></p>
+                    <span class="span_subtitle"><?php echo htmlspecialchars($info_waiter['name']) . " " . htmlspecialchars($info_waiter['surname']) ?></span>
                 </div>
             </div>
 
@@ -55,8 +57,8 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
             <!-- Contenedor de navegación -->
             <nav id="nav_header">
                 <a href="./historico.php"><button class="btn btn-danger btn_custom_logOut">Histórico de reservas</button></a>
-                <a href="#"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
-            </nav>
+                <a href="../php/cerrarSesion.php"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
+                </nav>
         </header>
 
     <main id="mesas_main">
@@ -82,7 +84,7 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
                                 } else {
                                     echo '../img/mesaD6.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="6">
+                            ?>" alt="" class="mesa"  style="display: block;" id="6" >
                         </div>
 
                         <div id="divSalaPriv" class="comunSalasMesa">
@@ -280,20 +282,28 @@ $ARRAYocupaciones = $_SESSION['ARRAYocupaciones'];
         </div>
     </main>
     
-    <!-- Modal para cambiar el estado de la mesa -->
-    <div id="mesaModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Estado de la Mesa</h2>
-            <p id="mesaInfo">Mesa seleccionada: <span id="mesaId"></span></p>
-            <form action="../php/estadoMesaRecuperar.php" method="POST">
-                <input type="hidden" name="mesa_id" id="mesa_id">
-                <input type="hidden" name="estado" id="estado_mesa" value="ocupada">
-                <button type="submit" class="btn btn-success" onclick="document.getElementById('estado_mesa').value = 'ocupada';">Marcar como Ocupada</button>
-                <button type="submit" class="btn btn-primary" onclick="document.getElementById('estado_mesa').value = 'libre';">Marcar como Libre</button>
-            </form>
-        </div>
+    <?php
+   if (isset($_GET['id'])) {
+    ?>
+    <div id="contenedorMesas">
+        <form class="form-horizontal" id="formFiltros" action="" method="GET">
+            <div id="tituloMesas">
+                <h3>Mesa</h3>
+            </div>
+            <div class="form-group row">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10 contenedorBotonesAcciones">
+                    <button type="submit" class="btn botonesAcciones btn_custom_filterOK" id="botonAplicarMesas"><i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+        </form>
     </div>
-    <script src="../js/modal.js"></script>
+
+<?php
+   }
+   ?>
+
+<script src="../js/modal.js"></script>
 </body>
 </html>
