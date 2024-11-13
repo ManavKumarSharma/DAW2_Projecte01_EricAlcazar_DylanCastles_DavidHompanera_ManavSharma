@@ -79,12 +79,12 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                             ?>" alt="" class="mesa"  style="display: block;" id="1">
 
                             <img src="<?php 
-                                if ($ARRAYocupaciones["6"] === "Ocupado") {
+                                if ($ARRAYocupaciones["7"] === "Ocupado") {
                                     echo '../img/mesaD6ocupada.png';
                                 } else {
                                     echo '../img/mesaD6.png';
                                 }
-                            ?>" alt="" class="mesa"  style="display: block;" id="6" >
+                            ?>" alt="" class="mesa"  style="display: block;" id="7" >
                         </div>
 
                         <div id="divSalaPriv" class="comunSalasMesa">
@@ -127,7 +127,7 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
 
                         <div class="salaGrandeDividida">
 
-                        <img src="<?php 
+                            <img src="<?php 
                                 if ($ARRAYocupaciones["3"] === "Ocupado") {
                                     echo '../img/mesaD8ocupada.png';
                                 } else {
@@ -267,14 +267,14 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
 
                     </div>
                     <div id="divSalaPrivAbajo" class="comunSalasMesa">
-
-                    <img src="<?php 
-                                if ($ARRAYocupaciones["24"] === "Ocupado") {
-                                    echo '../img/mesaD4ocupada.png';
-                                } else {
-                                    echo '../img/mesaD4.png';
-                                }
-                            ?>" alt="" class="mesa"  style="display: block;" id="24">
+                        
+                        <img src="<?php 
+                                    if ($ARRAYocupaciones["24"] === "Ocupado") {
+                                        echo '../img/mesaD4ocupada.png';
+                                    } else {
+                                        echo '../img/mesaD4.png';
+                                    }
+                                ?>" alt="" class="mesa"  style="display: block;" id="24">
                             
                     </div>
                 </div>
@@ -311,11 +311,7 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                                 tbl_camarero ON tbl_ocupacion.id_camarero = tbl_camarero.id_camarero
                             WHERE 
                                 tbl_mesa.id_mesa = ?
-                                AND tbl_ocupacion.fecha_inicio = (
-                                    SELECT MAX(fecha_inicio)
-                                    FROM tbl_ocupacion
-                                    WHERE tbl_ocupacion.id_mesa = tbl_mesa.id_mesa
-                                );";
+                                ;";
             
             $stmt_table_estado = mysqli_prepare($conn, $queryMesas);
             mysqli_stmt_bind_param($stmt_table_estado, "i", $id);
@@ -333,15 +329,16 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                 echo "Id de la mesa: " . $mesaInfo["id_mesa"] . "<br>";
                 echo "Numero de sillas: " . $mesaInfo["numero_sillas_mesa"] . "<br>";
                 echo "Ubicacion de la mesa: " . $mesaInfo["sala"] . "<br>";
-                
+
                 if ($mesaInfo['estado'] === "Ocupado") {
+                    echo "Camarero: " . $mesaInfo["camarero"] . "<br>";
                     echo'<br>';
                     echo'<br>';
-                    echo '<a href="../php/liberarMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button>LIBERAR</button></a>';
+                    echo '<a href="../php/liberarMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button class="btn btn-danger btn_custom_filter">LIBERAR</button></a>';
                 } else {
                     echo'<br>';
                     echo'<br>';
-                    echo '<a href="../php/reservaMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button>OCUPAR</button></a>';
+                    echo '<a href="../php/reservaMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button class="btn btn-danger btn_custom_filter">OCUPAR</button></a>';
 
                 }
             } else {
