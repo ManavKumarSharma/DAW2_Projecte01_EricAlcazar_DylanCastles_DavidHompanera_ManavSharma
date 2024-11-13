@@ -114,7 +114,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
- 
 
 <!DOCTYPE html>
 <html lang="en">
