@@ -1,8 +1,27 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>process</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 <?php
     session_start(); 
     session_unset(); 
     session_destroy(); 
 
-    header('Location: ../view/index.php');
+    echo "<script type='text/javascript'>
+                Swal.fire({
+                    title: 'Cerrar sesión',
+                    text:'¡Has cerrado sesión correctamente!.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    window.location.href = '../view/index.php';
+                });
+            </script>";
     exit();
 ?>
+</body>
+</html>
