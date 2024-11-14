@@ -26,7 +26,7 @@ CREATE TABLE tbl_ocupacion (
     id_ocupacion INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     id_mesa INT NOT NULL,
     id_camarero INT NOT NULL,
-    fecha_inicio DATETIME NOT NULL,
+    fecha_inicio DATETIME,
     fecha_final DATETIME,
     estado_ocupacion VARCHAR(25)
 );

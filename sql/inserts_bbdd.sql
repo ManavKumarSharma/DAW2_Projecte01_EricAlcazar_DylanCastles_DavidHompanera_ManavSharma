@@ -38,6 +38,7 @@ INSERT INTO tbl_mesa (id_sala, numero_sillas_mesa) VALUES
 (3, 4); 
 
 INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, estado_ocupacion) VALUES
+<<<<<<< HEAD
 (1, 1, '2024-11-08 12:00:00', NULL, 'Disponible'),
 (2, 2, '2024-11-08 13:30:00', NULL, 'Disponible'),
 (3, 3, '2024-11-08 14:00:00', NULL, 'Disponible'),
@@ -67,3 +68,32 @@ INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, esta
 (14, 4, '2024-11-11 14:30:00', '2024-11-11 15:30:00', 'Registrada'),
 (20, 3, '2024-11-12 10:00:00', '2024-11-12 11:00:00', 'Registrada'),
 (9, 4, '2024-11-12 15:30:00', '2024-11-12 16:30:00', 'Registrada');
+=======
+(1, 1, NULL, NULL, 'Disponible'),
+(2, 2, NULL, NULL, 'Disponible'),
+(3, 3, NULL, NULL, 'Disponible'),
+(4, 4, NULL, NULL, 'Disponible'),
+(5, 1, NULL, NULL, 'Disponible'),
+(6, 2, NULL, NULL, 'Disponible'),
+(7, 3, '2024-11-08 18:00:00', NULL, 'Ocupado'),
+(8, 4, '2024-11-08 12:00:00', NULL, 'Ocupado'),
+(9, 1, NULL, NULL, 'Disponible'),
+(10, 2, NULL, NULL, 'Disponible'),
+(11, 3, '2024-11-08 14:30:00', NULL, 'Ocupado'),
+(12, 4, NULL, NULL, 'Disponible'),
+(13, 1, NULL, NULL, 'Disponible'),
+(14, 2, '2024-11-08 18:00:00', NULL, 'Ocupado'),
+(15, 3, '2024-11-08 12:00:00', NULL, 'Ocupado'),
+(16, 4, NULL, NULL, 'Disponible'),
+(17, 1, NULL, NULL, 'Disponible'),
+(18, 2, '2024-11-08 14:30:00', NULL, 'Ocupado'),
+(19, 3, NULL, NULL, 'Disponible'),
+(20, 4, NULL, NULL, 'Disponible'),
+(21, 1, '2024-11-08 18:00:00', NULL, 'Ocupado'),
+(22, 2, '2024-11-08 14:30:00', NULL, 'Ocupado'),
+(23, 3, NULL, NULL, 'Disponible'),
+(24, 4, NULL, NULL, 'Disponible'),
+(24, 4, '2024-11-08 18:00:00', '2024-11-08 19:00:00', 'Registrada'),
+(9, 1, '2024-11-08 18:00:00', '2024-11-08 19:00:00', 'Registrada'),
+(2, 2, '2024-11-08 18:00:00', '2024-11-08 19:00:00', 'Registrada');
+>>>>>>> b1779a10a002fbc33c86ffdd7610d2b9735b35ff
