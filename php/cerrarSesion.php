@@ -8,6 +8,7 @@
 <body>
 <?php
     session_start(); 
+    if (isset($_SESSION['user_id'])) {
     session_unset(); 
     session_destroy(); 
 
@@ -22,6 +23,9 @@
                 });
             </script>";
     exit();
+    } else {
+        header('Location: ../view/index.php');
+    }
 ?>
 </body>
 </html>
