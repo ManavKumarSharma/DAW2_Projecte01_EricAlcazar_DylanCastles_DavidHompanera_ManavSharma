@@ -1,3 +1,11 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>process</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 <?php
 // Importamos los archivos necesarios
 require '../php/conexion.php'; 
@@ -46,7 +54,17 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_close($conn);
 
             // Redirección a mesas.php
-            header("Location: ../view/mesas.php");
+                // Redirigir o mostrar mensaje de éxito con SweetAlert
+            echo "<script type='text/javascript'>
+                Swal.fire({
+                    title: 'Inicio Sesión',
+                    text:'¡Has iniciado sesión correctamente!.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    window.location.href = '../view/mesas.php';
+                });
+                </script>";
             exit();
         }
     }
@@ -61,3 +79,5 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 mysqli_close($conn);
 redirect_with_errors('../php/cerrarSesion.php', $errors);
 ?>
+</body>
+</html>
