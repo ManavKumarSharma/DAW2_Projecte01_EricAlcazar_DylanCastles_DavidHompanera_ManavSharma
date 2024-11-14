@@ -14,7 +14,7 @@ CREATE TABLE tbl_camarero (
 CREATE TABLE tbl_mesa (
     id_mesa INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     id_sala INT NOT NULL,
-    numero_sillas_mesa INT NOT NULL  
+    numero_sillas_mesa INT NOT NULL
 );
 
 CREATE TABLE tbl_sala ( 
@@ -25,8 +25,8 @@ CREATE TABLE tbl_sala (
 CREATE TABLE tbl_ocupacion (
     id_ocupacion INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     id_mesa INT NOT NULL,
-    id_camarero INT NOT NULL,
-    fecha_inicio DATETIME NOT NULL,
+    id_camarero INT NULL,
+    fecha_inicio DATETIME,
     fecha_final DATETIME,
     estado_ocupacion VARCHAR(25)
 );
