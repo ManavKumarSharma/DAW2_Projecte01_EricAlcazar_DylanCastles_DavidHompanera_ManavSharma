@@ -14,16 +14,17 @@ require '../php/conexion.php';
 
 if (isset($_GET['id'])) {
     $id_mesa = htmlspecialchars($_GET['id']);
+    $user_id =$_SESSION['user_id'];
 
     $update_query_ocu = "
         UPDATE tbl_ocupacion
-        SET estado_ocupacion = 'Ocupado', fecha_inicio = CURRENT_TIMESTAMP
+        SET estado_ocupacion = 'Ocupado', fecha_inicio = CURRENT_TIMESTAMP, id_camarero = ?
         WHERE id_mesa = ? AND estado_ocupacion = 'Disponible';
     ";
 
 
     $stmt_update_query_ocu = mysqli_prepare($conn, $update_query_ocu);
-    mysqli_stmt_bind_param($stmt_update_query_ocu, "i", $id_mesa,);
+    mysqli_stmt_bind_param($stmt_update_query_ocu, "ii", $user_id, $id_mesa);
     mysqli_stmt_execute($stmt_update_query_ocu);
     mysqli_stmt_close($stmt_update_query_ocu);
 

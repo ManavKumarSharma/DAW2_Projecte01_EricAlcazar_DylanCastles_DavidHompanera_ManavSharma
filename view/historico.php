@@ -110,7 +110,7 @@ mysqli_close($conn);
                 <img src="../img/logoSinFondo.png" alt="Logo" id="icon_profile" class="img-fluid">
             </div>
             <div id="username_profile_header" class="ms-3">
-                <p id="p_username_profile" class="mb-0 fw-bold"><?php echo htmlspecialchars($info_waiter['username']); ?></p>
+                <p id="p_username_profile"><?php echo htmlspecialchars($info_waiter['username']); ?></p>
                 <span class="span_subtitle"><?php echo htmlspecialchars($info_waiter['name']) . " " . htmlspecialchars($info_waiter['surname']); ?></span>
             </div>
         </div>

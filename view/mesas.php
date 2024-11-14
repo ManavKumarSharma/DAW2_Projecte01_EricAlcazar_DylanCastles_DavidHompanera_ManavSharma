@@ -56,9 +56,9 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
 
             <!-- Contenedor de navegación -->
             <nav id="nav_header">
-                <a href="./historico.php"><button class="btn btn-danger btn_custom_logOut">Histórico de reservas</button></a>
-                <a href="../php/cerrarSesion.php"><button class="btn btn-danger btn_custom_logOut">Log Out</button></a>
-                </nav>
+                <a href="./historico.php" class="btn btn-danger me-2 btn_custom_logOut">Histórico reservas</a>
+                <a href="../php/cerrarSesion.php" class="btn btn-danger btn_custom_logOut">Cerrar sesión</a>
+            </nav>
         </header>
 
     <main id="mesas_main">
@@ -317,19 +317,16 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                                 tbl_mesa.numero_sillas_mesa,
                                 tbl_sala.ubicacion_sala AS sala,
                                 tbl_ocupacion.id_ocupacion,
-                                tbl_ocupacion.estado_ocupacion AS estado,
-                                tbl_camarero.nombre_camarero AS camarero
+                                tbl_ocupacion.estado_ocupacion AS estado
                             FROM 
                                 tbl_mesa
                             INNER JOIN 
                                 tbl_sala ON tbl_mesa.id_sala = tbl_sala.id_sala
                             INNER JOIN 
                                 tbl_ocupacion ON tbl_mesa.id_mesa = tbl_ocupacion.id_mesa
-                            INNER JOIN 
-                                tbl_camarero ON tbl_ocupacion.id_camarero = tbl_camarero.id_camarero
                             WHERE 
-                                tbl_mesa.id_mesa = ?
-                                ;";
+                                tbl_mesa.id_mesa = ?;";
+
             $stmt_table_estado = mysqli_prepare($conn, $queryMesas);
             mysqli_stmt_bind_param($stmt_table_estado, "i", $id);
 
@@ -348,7 +345,31 @@ $info_waiter = get_info_waiter_bbdd($conn, $id_camarero);
                 echo "Ubicacion de la mesa: " . $mesaInfo["sala"] . "<br>";
 
                 if ($_SESSION['ARRAYocupaciones'][$mesaInfo["id_mesa"]] === "Ocupado") {
-                    echo "Camarero: " . $mesaInfo["camarero"] . "<br>";
+                    $queryCamarero = "SELECT 
+                                        tbl_camarero.nombre_camarero AS nombre,
+                                        tbl_camarero.apellidos_camarero AS apellidos
+                                    FROM 
+                                        tbl_mesa
+                                    INNER JOIN 
+                                        tbl_ocupacion ON tbl_mesa.id_mesa = tbl_ocupacion.id_mesa
+                                    INNER JOIN 
+                                        tbl_camarero ON tbl_camarero.id_camarero = tbl_ocupacion.id_camarero
+                                    WHERE 
+                                        tbl_mesa.id_mesa = ?
+                                    AND 
+                                        tbl_ocupacion.estado_ocupacion LIKE 'Ocupado';";
+
+                    $stmt_camarero = mysqli_prepare($conn, $queryCamarero);
+                    mysqli_stmt_bind_param($stmt_camarero, "i", $id);
+
+                    // Ejecutar la declaración
+                    mysqli_stmt_execute($stmt_camarero);
+
+                    // Obtener el resultado
+                    $result = mysqli_stmt_get_result($stmt_camarero);
+                    $infoCamarero = mysqli_fetch_assoc($result);
+
+                    echo "Camarero: " . $infoCamarero["nombre"] . " " . $infoCamarero['apellidos'] ."<br>";
                     echo'<br>';
                     echo'<br>';
                     echo '<a href="../php/liberarMesas.php?id=' . $mesaInfo['id_mesa'] . '"><button class="btn btn-danger btn_custom_filter">LIBERAR</button></a>';
