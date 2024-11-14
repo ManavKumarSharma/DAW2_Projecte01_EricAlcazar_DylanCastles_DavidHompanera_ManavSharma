@@ -36,7 +36,7 @@ INSERT INTO tbl_mesa (id_sala, numero_sillas_mesa) VALUES
 (2, 4), 
 (2, 2), 
 (3, 4); 
-
+x
 INSERT INTO tbl_ocupacion (id_mesa, id_camarero, fecha_inicio, fecha_final, estado_ocupacion) VALUES
 (1, 1, NULL, NULL, 'Disponible'),
 (2, 2, NULL, NULL, 'Disponible'),
