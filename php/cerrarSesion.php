@@ -15,7 +15,7 @@
     echo "<script type='text/javascript'>
                 Swal.fire({
                     title: 'Cerrar sesión',
-                    text:'¡Has cerrado sesión correctamente!.',
+                    text:'¡Has cerrado sesión correctamente!',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 }).then(function() {
