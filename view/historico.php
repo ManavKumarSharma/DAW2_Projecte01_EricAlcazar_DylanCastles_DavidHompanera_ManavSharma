@@ -104,7 +104,7 @@ mysqli_close($conn);
 </head>
 <body>
     <!-- Cabecera -->
-    <header id="container_header" class="d-flex justify-content-between align-items-center py-3 px-4 bg-light">
+    <header id="container_header" class="d-flex">
         <div id="container-username" class="d-flex align-items-center">
             <div id="icon_profile_header">
                 <img src="../img/logoSinFondo.png" alt="Logo" id="icon_profile" class="img-fluid">
@@ -115,14 +115,14 @@ mysqli_close($conn);
             </div>
         </div>
 
-        <div id="container_title_header_2" class="text-center">
+        <div id="container_title_header" class="text-center">
             <h1 id="title_header" class="m-0"><strong>Dinner At Westfield</strong></h1>
             <span class="span_subtitle">Gestión de mesas</span>
         </div>
 
         <nav id="nav_header">
             <a href="./mesas.php" class="btn btn-danger me-2 btn_custom_logOut">Reservar mesas</a>
-            <a href="../php/cerrarSesion.php" class="btn btn-danger btn_custom_logOut">Cerrar sesión</a>
+            <a href="../php/cerrarSesion.php" class="btn btn-danger btn_custom_logOut m-1">Cerrar sesión</a>
         </nav>
     </header> 
 
