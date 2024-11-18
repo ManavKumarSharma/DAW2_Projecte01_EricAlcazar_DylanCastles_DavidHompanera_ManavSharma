@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "1234";
 $database = "restaurante_bbdd";
 
 // Intenta hacer la conexión

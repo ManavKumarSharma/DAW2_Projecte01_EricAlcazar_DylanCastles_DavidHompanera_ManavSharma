@@ -69,7 +69,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         }
     }
     
-    $errors[] = 'Credenciales incorrectas';
+    $errors['loginMal'] = 'Credenciales incorrectas';
 
     // Cerramos las consultas
     mysqli_stmt_close($stmt);

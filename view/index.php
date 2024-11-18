@@ -40,6 +40,9 @@ if (!empty($_GET['error'])) {
                             if (!empty($error)) {
                                 echo $error;
                             }
+                            if (!empty($error['loginMal'])) {
+                                echo $error['loginMal'];
+                            }
                         ?>
                     </span>
                     <br><br>

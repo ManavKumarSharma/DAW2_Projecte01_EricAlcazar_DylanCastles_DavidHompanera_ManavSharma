@@ -104,7 +104,7 @@ mysqli_close($conn);
 </head>
 <body>
     <!-- Cabecera -->
-    <header id="container_header" class="d-flex justify-content-between align-items-center py-3 px-4 bg-light">
+    <header id="container_header">
         <div id="container-username" class="d-flex align-items-center">
             <div id="icon_profile_header">
                 <img src="../img/logoSinFondo.png" alt="Logo" id="icon_profile" class="img-fluid">

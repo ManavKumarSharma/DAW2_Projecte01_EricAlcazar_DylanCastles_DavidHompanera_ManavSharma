@@ -16,7 +16,7 @@ html, body {
     height: 15%;
     background-color: rgb(255, 255, 255);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 5vh;
 }
