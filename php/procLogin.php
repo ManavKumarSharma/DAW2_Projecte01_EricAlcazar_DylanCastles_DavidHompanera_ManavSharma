@@ -53,12 +53,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_close($stmt);
             mysqli_close($conn);
 
-            // Redirección a mesas.php
-                // Redirigir o mostrar mensaje de éxito con SweetAlert
+            // Redirección a mesas.php con SweetAlert
             echo "<script type='text/javascript'>
                 Swal.fire({
-                    title: 'Inicio Sesión',
-                    text:'¡Has iniciado sesión correctamente!.',
+                    title: 'Inicio de sesión',
+                    text: '¡Has iniciado sesión correctamente!',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 }).then(function() {
@@ -77,7 +76,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 // Cerramos la conexión
 mysqli_close($conn);
-redirect_with_errors('../php/cerrarSesion.php', $errors);
+redirect_with_errors('../view/index.php', $errors);
 ?>
 </body>
 </html>
