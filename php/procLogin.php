@@ -77,7 +77,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 // Cerramos la conexión
 mysqli_close($conn);
-redirect_with_errors('../php/cerrarSesion.php', $errors);
+redirect_with_errors('../view/index.php', $errors);
 ?>
 </body>
 </html>
